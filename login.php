@@ -9,7 +9,10 @@ if(!isset($_SESSION['uname']))
     <head>
     <title>Login page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <style>
 body{
         background-image:url('background1.jpg');
@@ -24,19 +27,20 @@ body{
     </style>
     
     </head>
-<body>
-<div class="container bg-dark text-light d-flex justify-content-center" style="border-radius:10px; width:50%;height:100%;margin-top:10%;">
+<body class=" text-center mt-5" >
+<h1 class="text-success">Login Form</h1>
+         <pre><p class="text-light">Don't have an account? Please <a href="pro.php" name="log" class="text-warning">Register</a></p></pre>
+<div class="container bg-dark text-light d-flex justify-content-center" style="border-radius:10px; width:100%;height:100%;">
     <form action="check.php" method="post" class="text-center" style="padding-top:20px;" class="form-control form-control-sm" >
     <table>
-         <h1 class="text-primary">Login Form</h1>
-         <tr><pre><p>Don't have an account? Please <a href="pro.php" name="log" class="text-warning">Register</a></p></pre></tr>
+
         <tr>
             <td><label class="text-light">User Name:</label></td>
-            <td><input type="text" id="lname" name="logname" class="form-control form-control-sm" placeholder="Email"></td>
+            <td><input type="text" id="lname" name="logname" class="form-control form-control-sm" placeholder="Email" style="width:170%;"></td>
         </tr>
         <tr>
             <td><label class="text-light">Password:</label></td>
-            <td><input type="password" id="lpass" name="logpass" class="form-control form-control-sm" placeholder="Enter password"></td>
+            <td><input type="password" id="lpass" name="logpass" class="form-control form-control-sm" placeholder="Enter password" style="width:170%;"></td>
         </tr>
         <tr>
             <td></td>

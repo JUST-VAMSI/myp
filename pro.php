@@ -2,6 +2,10 @@
     <head>
         <title>form</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <style>
     body{
         background-image:url('background1.jpg');
@@ -14,25 +18,26 @@
 }
 </style>
     </head>
-<body>
-    <div class="container bg-dark text-light d-flex justify-content-center" style="border-radius:10px; width:50%;height:auto; margin-top:5%;">
+<body class="text-center mt-5">
+    <h1 class="text-success">Sign up</h1>
+        <pre><p class="text-light">Already an user? Please <a href="login.php" name="log" class="text-warning">login</a></p></pre>
+    <div class="container bg-dark text-light d-flex justify-content-center" style="border-radius:10px; width:100%;height:auto; margin-top:2%;">
     <form onsubmit="return hello();" action="connect.php" method="post" class="text-center" style="padding-top:20px;" class="form-control form-control-sm">
-        <table>
-            <h1 class="text-primary">Sign up</h1>
-            <tr><pre><p>Already an user? Please <a href="login.php" name="log">login</a></p></pre></tr>
+        
+    <table>
             <div class="container-fluid" style="margin-top:10%;">
             <tr>
                 <td class="text-light">First name:</td>
-                <td><input onkeyup="Firstname();" type="text" id="Fname" name="fname" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="Enter Fname"></td>
+                <td><input onkeyup="Firstname();" type="text" id="Fname" name="fname" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="Enter Fname" style="width:140%;"></td>
             </tr>
             </div>
             <tr>
                 <td class="text-light">Last name:</td>
-                <td><input onkeyup="Lastname();" type="text" id="Lname" name="lname" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="Enter Lname"></td>
+                <td><input onkeyup="Lastname();" type="text" id="Lname" name="lname" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="Enter Lname" style="width:140%;"></td>
             </tr>
             <tr>
                 <td class="text-light">Create password:</td>
-                <td><input onkeyup="Cpass();" id="CPass" type="password" name="pass" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="len >=8 & it inclds char,spl symbl,num"></td>
+                <td><input onkeyup="Cpass();" id="CPass" type="password" name="pass" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="len >=8 & it inclds char,spl symbl,num" style="width:140%;"></td>
             </tr>
             <tr>
                 <td></td>
@@ -40,11 +45,11 @@
             </tr>
             <tr>
                 <td class="text-light">Confirm password:</td>
-                <td><input type="password" onkeyup="repass();" id="RePass" name="pass" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="re-enter password"></td>
+                <td><input type="password" onkeyup="repass();" id="RePass" name="pass" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="re-enter password" style="width:140%;"></td>
             </tr>
             <tr>
                 <td class="text-light">Email:</td>
-                <td><input type="email" onkeyup="Email();" id="emailname" name="Emailname" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="                                                  @gmail.com"></td>
+                <td><input type="email" onkeyup="Email();" id="emailname" name="Emailname" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="                                                                             @gmail.com" style="width:140%;"></td>
             </tr>
             <tr>
                 <td class="text-light">Gender:</td>
@@ -55,11 +60,11 @@
             </tr>
             <tr>
                 <td class="text-light">Mobile number:</td>
-                <td><input type="number" name="mobile" onkeyup="Mobile();" id="mobile" placeholder="+91" class="form-control form-control-sm" aria-label=".form-control-sm example"></td>
+                <td><input type="number" name="mobile" onkeyup="Mobile();" id="mobile" placeholder="+91" class="form-control form-control-sm" aria-label=".form-control-sm example" style="width:140%;"></td>
             </tr>
             <tr>
                 <td class="text-light">Address:</td>
-                <td><textarea rows="3" cols="40" onkeyup="address();" id="add" name="textarea" class="form-control form-control-sm" aria-label=".form-control-sm example"  placeholder="This address will be taken as your shipping address"></textarea></td>
+                <td><textarea rows="3" cols="40" onkeyup="address();" id="add" name="textarea" class="form-control form-control-sm" aria-label=".form-control-sm example"  placeholder="This address will be taken as your shipping address" style="width:140%;"></textarea></td>
             </tr>
             <tr>
                 <td><input type="reset" value="Reset" class="bg-danger" style="border-radius:5px;margin-top:12%;"></td>
