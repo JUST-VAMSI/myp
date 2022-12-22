@@ -19,12 +19,14 @@ if((isset($_GET['sell'])) || isset($_SESSION['uname']))
                 <body class="text-center" style="background-color:lightgray;">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-light mt-2 fw-bold sticky-top">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon">   
+                  <i class="fas fa-bars" style="color:#fff; font-size:28px;"></i>
+              </span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="main.php" style="margin-left:10px;">HOME</a>
+                <a class="nav-link text-light" aria-current="page" href="main.php" style="margin-left:10px;">HOME</a>
                 </li>
               </ul>
             </div>

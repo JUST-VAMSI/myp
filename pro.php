@@ -21,23 +21,23 @@
 <body class="text-center mt-5">
     <h1 class="text-success">Sign up</h1>
         <pre><p class="text-light">Already an user? Please <a href="login.php" name="log" class="text-warning">login</a></p></pre>
-    <div class="container bg-dark text-light d-flex justify-content-center" style="border-radius:10px; width:100%;height:auto; margin-top:2%;">
+    <div class="container bg-dark text-light d-flex justify-content-center" style="border-radius:10px; width:50%;height:auto; margin-top:2%;">
     <form onsubmit="return hello();" action="connect.php" method="post" class="text-center" style="padding-top:20px;" class="form-control form-control-sm">
         
     <table>
             <div class="container-fluid" style="margin-top:10%;">
             <tr>
                 <td class="text-light">First name:</td>
-                <td><input onkeyup="Firstname();" type="text" id="Fname" name="fname" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="Enter Fname" style="width:140%;"></td>
+                <td><input onkeyup="Firstname();" type="text" id="Fname" name="fname" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="Enter Fname"></td>
             </tr>
             </div>
             <tr>
                 <td class="text-light">Last name:</td>
-                <td><input onkeyup="Lastname();" type="text" id="Lname" name="lname" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="Enter Lname" style="width:140%;"></td>
+                <td><input onkeyup="Lastname();" type="text" id="Lname" name="lname" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="Enter Lname"></td>
             </tr>
             <tr>
                 <td class="text-light">Create password:</td>
-                <td><input onkeyup="Cpass();" id="CPass" type="password" name="pass" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="len >=8 & it inclds char,spl symbl,num" style="width:140%;"></td>
+                <td><input onkeyup="Cpass();" id="CPass" type="password" name="pass" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="len >=8 & it inclds char,spl symbl,num"></td>
             </tr>
             <tr>
                 <td></td>
@@ -45,11 +45,11 @@
             </tr>
             <tr>
                 <td class="text-light">Confirm password:</td>
-                <td><input type="password" onkeyup="repass();" id="RePass" name="pass" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="re-enter password" style="width:140%;"></td>
+                <td><input type="password" onkeyup="repass();" id="RePass" name="pass" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="re-enter password"></td>
             </tr>
             <tr>
                 <td class="text-light">Email:</td>
-                <td><input type="email" onkeyup="Email();" id="emailname" name="Emailname" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="                                                                             @gmail.com" style="width:140%;"></td>
+                <td><input type="email" onkeyup="Email();" id="emailname" name="Emailname" class="form-control form-control-sm" aria-label=".form-control-sm example" placeholder="                                                       @gmail.com"></td>
             </tr>
             <tr>
                 <td class="text-light">Gender:</td>
@@ -60,11 +60,11 @@
             </tr>
             <tr>
                 <td class="text-light">Mobile number:</td>
-                <td><input type="number" name="mobile" onkeyup="Mobile();" id="mobile" placeholder="+91" class="form-control form-control-sm" aria-label=".form-control-sm example" style="width:140%;"></td>
+                <td><input type="number" name="mobile" onkeyup="Mobile();" id="mobile" placeholder="+91" class="form-control form-control-sm" aria-label=".form-control-sm example"></td>
             </tr>
             <tr>
                 <td class="text-light">Address:</td>
-                <td><textarea rows="3" cols="40" onkeyup="address();" id="add" name="textarea" class="form-control form-control-sm" aria-label=".form-control-sm example"  placeholder="This address will be taken as your shipping address" style="width:140%;"></textarea></td>
+                <td><textarea rows="3" cols="40" onkeyup="address();" id="add" name="textarea" class="form-control form-control-sm" aria-label=".form-control-sm example"  placeholder="This address will be taken as your shipping address"></textarea></td>
             </tr>
             <tr>
                 <td><input type="reset" value="Reset" class="bg-danger" style="border-radius:5px;margin-top:12%;"></td>

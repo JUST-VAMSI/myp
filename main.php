@@ -19,16 +19,16 @@ if(isset($_SESSION['uname']))
       }
     </style>
     </head>
-    <body style="background-color:lightgray">
+    <body class="justify-content-center text-center text-sm-center"style="background-color:#f0f0f0;">
     <div class="row container d-flex justify-content-center" style="width:100%;padding-left:18%;">
     <h1 class="text-center">FURNITURE</h1>
     <h2 class="text-center">ALL IN ONE</h2>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-light fw-bold text-center text-sm-center sticky-top">
+    <nav class="navbar navbar-expand-lg text-light bg-primary fw-bold text-center text-sm-center sticky-top" style="color:white;">
 <div class="container-fluid">
 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item dropdown bg-primary text-light">
-<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 <button><i class="bi bi-file-person"></i></button>
 </a>
 <ul class="dropdown-menu bg-dark text-light" aria-labelledby="navbarDropdown">
@@ -36,16 +36,18 @@ if(isset($_SESSION['uname']))
 </ul>
 </li>
 </ul>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
+<button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon">   
+                  <i class="fas fa-bars" style="color:#fff; font-size:28px;"></i>
+              </span>
 </button>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
-<a class="nav-link" aria-current="page" href="main.php">HOME</a>
+<a class="nav-link text-light" aria-current="page" href="main.php">HOME</a>
 </li>
 <li class="nav-item dropdown bg-primary text-light">
-<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 PRODUCTS
 </a>
 <ul class="dropdown-menu bg-dark text-light text-center text-sm-center" aria-labelledby="navbarDropdown">
@@ -59,13 +61,13 @@ PRODUCTS
 </ul>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#gallery">GALLERY</a>
+<a class="nav-link text-light" href="#gallery">GALLERY</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">CONTACT US</a>
+<a class="nav-link text-light" href="#">CONTACT US</a>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="logout.php" name="logout">LOGOUT</a>
+<li class="nav-item text-light">
+<a class="nav-link text-light" href="logout.php" name="logout">LOGOUT</a>
 </li>
 </ul>
 
@@ -118,163 +120,50 @@ PRODUCTS
     $sql_query="SELECT * FROM `Products`";
     $result=mysqli_query($connect,$sql_query);
     ?>
-<div class="container text-center text-sm-center">
+
 <h2  style="margin-top:3%;">PRODUCTS</h2>
-<h3 class="text-primary" id="door">DOORS</h3>
+<h3 class="text-primary text-center" id="door">DOORS</h3>
 <hr>
-<div class="container-fluid">
+
 <div class="row">
 <?php
       if($result->num_rows > 0){
     while($row=mysqli_fetch_assoc($result))
         {
-          if($row['proid']<=5){
+          if($row['proid']==6){
             ?>
+            <h3 class="text-primary" id="cot">COTS</h3>
+            <hr>
+            <?php
+            }
+             if($row['proid']==11){
+            ?>
+            <h3 class="text-primary" id="sofa">SOFAS</h3>
+            <hr>
+            <?php
+            }
+            if($row['proid']==16){
+              ?>
+              <h3 class="text-primary" id="dining">DINING TABLES</h3>
+              <hr>
+              <?php
+              }
+              ?>
+
             
                 <div class="col-sm-4 col-lg-3 text-center mt-2" style="border-radius:5px;">
-                <img src="<?php echo $row['proimg']?>" alt="..." height="230px" width="200px" style="border-radius:8px;">
+                <img src="<?php echo $row['proimg']?>" alt="..." height="300px" width="250px" style="border-radius:8px;">
                 <h6 class="card-title" name="pname"><?php echo $row['proname']?></h6>
                   <p class="card-text">RS.<?php echo $row['proprice']?></p>
-                   <a href="product.php?prod=<?=$row['proname'] ?>" class="btn btn-success"> BUY NOW</a>
+                   <a href="product.php?prod=<?=$row['proname'] ?>" class="btn btn-warning"> BUY NOW</a>
           </div>
-             <?php
-          }
-        }
+             <?php  
+        
       }
+    }
         ?>
-
-</div>
     </div>
 <hr>
-</div>
-<?php
- $sql2="SELECT * FROM `Products`";
- $result2=mysqli_query($connect,$sql2);
- ?>
-<div class="container text-center text-sm-center mt-5">
-<h3 class="text-primary" id="cot">COTS</h3>
-<hr>
-<div class="container-fluid"> 
-<div class="row">
-<?php
-      if($result2->num_rows > 0){
-    while($row=mysqli_fetch_assoc($result2))
-        {
-          if($row['proid']<=10 && $row['proid']>5){
-            ?>
-            
-                <div class="col-sm-4 col-lg-3 text-center mt-2" style="border-radius:5px;">
-                <img src="<?php echo $row['proimg']?>" alt="..." height="230px" width="200px" style="border-radius:8px;">
-                <h6 class="card-title" name="pname"><?php echo $row['proname']?></h6>
-                  <p class="card-text">RS.<?php echo $row['proprice']?></p>
-                   <a href="product.php?prod=<?=$row['proname']?>" class="btn btn-success"> BUY NOW</a>
-          </div>
-             <?php
-          }
-        }
-      }
-        ?>
-
-</div>
-
-</div>
-<hr>
-</div>
-<?php
- $sql3="SELECT * FROM `Products`";
- $result3=mysqli_query($connect,$sql3);
- ?>
-<div class="container text-center text-sm-center mt-5">
-<h3 class="text-primary" id="sofa">SOFAS</h3>
-<hr>
-<div class="container-fluid"> 
-<div class="row">
-<?php
-      if($result3->num_rows > 0){
-    while($row=mysqli_fetch_assoc($result3))
-        {
-          if($row['proid']<=15 && $row['proid']>10){
-            ?>
-            
-                <div class="col-sm-4 col-lg-3 text-center mt-2" style="border-radius:5px;">
-                <img src="<?php echo $row['proimg']?>" alt="..." height="230px" width="200px" style="border-radius:8px;">
-                <h6 class="card-title" name="pname"><?php echo $row['proname']?></h6>
-                  <p class="card-text">RS.<?php echo $row['proprice']?></p>
-                   <a href="product.php?prod=<?=$row['proname']?>" class="btn btn-success"> BUY NOW</a>
-          </div>
-             <?php
-          }
-        }
-      }
-        ?>
-
-</div>
-
-</div>
-<hr>
-</div>
-<?php
- $sql2="SELECT * FROM `Products`";
- $result2=mysqli_query($connect,$sql2);
- ?>
-<div class="container text-center text-sm-center mt-5">
-<h3 class="text-primary" id="dining">DINING TABLES</h3>
-<hr>
-<div class="container-fluid"> 
-<div class="row">
-<?php
-      if($result2->num_rows > 0){
-    while($row=mysqli_fetch_assoc($result2))
-        {
-          if($row['proid']<=20 && $row['proid']>15){
-            ?>
-            
-                <div class="col-sm-4 col-lg-3 text-center mt-2" style="border-radius:5px;">
-                <img src="<?php echo $row['proimg']?>" alt="..." height="230px" width="200px" style="border-radius:8px;">
-                <h6 class="card-title" name="pname"><?php echo $row['proname']?></h6>
-                  <p class="card-text">RS.<?php echo $row['proprice']?></p>
-                   <a href="product.php?prod=<?=$row['proname']?>" class="btn btn-success"> BUY NOW</a>
-          </div>
-             <?php
-          }
-        }
-      }
-        ?>
-
-</div>
-
-</div>
-<hr>
-</div>
-<?php
-$sql_q="SELECT * FROM `gallery`";
-    $res=mysqli_query($connect,$sql_q);
-    ?>
-<div class="container text-center text-sm-center">
-<h2  style="margin-top:3%;" id="gallery">GALLERY</h2>
-<hr>
-<div class="container-fluid">
-<div class="row">
-<?php
-      if($result->num_rows > 0){
-    while($row=mysqli_fetch_assoc($res))
-        {
-            ?>
-            
-                <div class="col-sm-4 col-lg-3 text-center mt-2" style="border-radius:5px;">
-                <img src="<?php echo $row['img']?>" alt="..." height="230px" width="200px" style="border-radius:10%;">
-                  <p class="card-text"><b><?php echo $row['name']?></b></p>
-          </div>
-             <?php
-          }
-        }
-        ?>
-
-</div>
-    </div>
-    <hr>
-      </div>
-      
 <footer class="sticky-bottom text-center text-sm-center bg-secondary">
 <section class="mb-4 text-center">
         <a class="btn btn-outline-light m-1" href="https://www.facebook.com/sai.h.5437" target="_blank"><i class="fab fa-facebook-f"></i></a>

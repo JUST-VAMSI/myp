@@ -30,21 +30,21 @@ body{
 <body class=" text-center mt-5" >
 <h1 class="text-success">Login Form</h1>
          <pre><p class="text-light">Don't have an account? Please <a href="pro.php" name="log" class="text-warning">Register</a></p></pre>
-<div class="container bg-dark text-light d-flex justify-content-center" style="border-radius:10px; width:100%;height:100%;">
+<div class="container bg-dark text-light d-flex justify-content-center" style="border-radius:10px; width:50%;height:100%;">
     <form action="check.php" method="post" class="text-center" style="padding-top:20px;" class="form-control form-control-sm" >
     <table>
 
         <tr>
             <td><label class="text-light">User Name:</label></td>
-            <td><input type="text" id="lname" name="logname" class="form-control form-control-sm" placeholder="Email" style="width:170%;"></td>
+            <td><input type="text" id="lname" name="logname" class="form-control form-control-sm" placeholder="Email"></td>
         </tr>
         <tr>
             <td><label class="text-light">Password:</label></td>
-            <td><input type="password" id="lpass" name="logpass" class="form-control form-control-sm" placeholder="Enter password" style="width:170%;"></td>
+            <td><input type="password" id="lpass" name="logpass" class="form-control form-control-sm" placeholder="Enter password"></td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="checkbox" onclick="check();" name="lcheck" id="lcheckbox"><label class="text-light" style="margin-left:2%;">show password</label></td>
+            <td><input type="checkbox" onclick="check();" name="lcheck" id="lcheckbox"><label class="text-light" style="margin-left:2px;">show password</label></td>
         </tr>
         
         <tr>
