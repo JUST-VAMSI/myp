@@ -67,7 +67,7 @@
                             <a href="cart.php?car=<?= $row['proname']?>"><button class="btn btn-primary px-4 mt-2"><i class="fa fa-shopping-cart me-2"></i>Add to Cart</button></a>
                         </div>
                         <div class="col-lg-6">
-                            <a href="beforesell.php?sell=<?= $row['proname']?>"><button class="btn btn-warning px-4 mt-2">BUY</button></a>
+                            <a href="beforesell.php?sell=<?= $row['proname']?>"><button class="btn btn-warning px-4 mt-2" style="width:35%">BUY</button></a>
                         </div>
                       </div>
 

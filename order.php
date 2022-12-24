@@ -24,10 +24,14 @@ if(isset($_SESSION['uname']) && isset($_GET['main']))
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
                 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
                 <style>
+                  body{
+                    background-color:#f0f0f0;
+                  }
                   </style>
                 </head>
-                <body class="text-center" style="background-color:lightgray;">
+                <body class="text-center text-sm-center">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-light mt-2 fw-bold sticky-top">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">   
@@ -47,18 +51,18 @@ if(isset($_SESSION['uname']) && isset($_GET['main']))
           {
             while($row=mysqli_fetch_assoc($res))
             {?>
-                
-                <div class="py-4" style="background-color:lightgray;">
-                    <div class="container text-center text-sm-center text-md-center mt-3" style="border-radius:5px">
-                      <div class="row bg-light" style="border-radius:8px ;">
-                        <div class="col-lg-4 col-sm-4 col-xs-4 shadow" style="border-radius:5px;">
-                             <img src="<?php echo $row['oimg']?>" alt="..." height="128px" width="90px" style="border-radius:5px;">
+                      <div class="row bg-light mt-2">
+                        <div class="col-lg-3 col-sm-3 col-xs-3">
+                             <img src="<?php echo $row['oimg']?>" alt="..." height="300px" width="250px" style="border-radius:5px;">
                         </div>
-                      <div class="col-lg-8 col-sm-8 col-xs-8 mt-3">
+                      <div class="col-lg-9 col-sm-9 col-xs-9 mt-5">
+                        <div class="row">
                         <h6 class="fw-bold"><?= $row['oname']; ?></h6>
+                        </div>
+                        <div class="row mt-5" style="float:center;">
+                          <a href="product.php?prod=<?= $row['oname'] ?>"><button style="height:200%;border:solid .5px gray;font-family:verdana;"> view more<i class="bi bi-arrow-right-circle-fill ms-2"></i></button></a>
+                        </div>
                       </div>
-                     </div>
-                    </div>
                  </div>
                  </body>
                        </html>

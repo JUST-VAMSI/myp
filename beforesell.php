@@ -16,7 +16,7 @@ if((isset($_GET['sell'])) || isset($_SESSION['uname']))
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
                 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
                 </head>
-                <body class="text-center" style="background-color:lightgray;">
+                <body class="text-center" style="background-color:f0f0f0;">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-light mt-2 fw-bold sticky-top">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">   
@@ -42,29 +42,25 @@ if((isset($_GET['sell'])) || isset($_SESSION['uname']))
          if($row['email']==$_SESSION['uname'])
          {
           ?>
-             <div class="py-4" style="border-radius:5px;">
-             <div class="container bg-light" style="border-radius:5px ;">
-                 <div class="row text-center text-sm-center">
-                   <div class="col-md-6 mt-2">
+                 <div class="row text-center text-sm-center bg-light mt-5">
+                   <div class="col-md-6 mt-5 mb-5">
                        <p><b>Delivery to : </b><?= $row['useraddress'] ?></p>
                    </div>
-                   <div class="col-md-6 mt-1 mb-1">
+                   <div class="col-md-6 mt-5 mb-5">
                        <a href="address.php?ad='okk'"><button class="btn btn-primary">change</button></a>
                    </div>
                  </div>
-               </div>
-               </div>
+                 <div class="col-lg-12 col-sm-12 col-xs-12 mt-5 mb-1">
+       <a href="sell.php?yessell=<?= $pro ?>"><button class="btn btn-warning px-4 mt-2">Place order</button></a>
+     </div>
+   </div>
              
            
       <?php
          break;
          }
-       }?>
-       <div class="col-lg-12 col-sm-12 col-xs-12 mt-1 mb-1">
-       <a href="sell.php?yessell=<?= $pro ?>"><button class="btn btn-warning px-4 mt-2">Place order</button></a>
-     </div>
-   </div>
-   <?php
+
     }
 }
-    }?>
+    }
+  }?>

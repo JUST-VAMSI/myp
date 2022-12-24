@@ -35,15 +35,17 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
                   }
                   </style>
                 </head>
-                <body class="text-center" style="background-color:lightgray;">
+                <body class="text-center text-sm-center" style="background-color:#f0f0f0;">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-light mt-2 fw-bold sticky-top">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon">   
+                  <i class="fas fa-bars" style="color:#fff; font-size:28px;"></i>
+              </span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="main.php" style="margin-left:10px;">HOME</a>
+                <a class="nav-link text-light" aria-current="page" href="main.php" style="margin-left:10px;">HOME</a>
                 </li>
               </ul>
             </div>
@@ -59,72 +61,62 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
          if($row['email']==$_SESSION['uname'])
          {
           ?>
-             <div class="py-4" style="border-radius:5px;">
-             <div class="container bg-light" style="border-radius:5px ;">
-                 <div class="row text-center text-sm-center">
+                 <div class="row text-center text-sm-center bg-light mt-2">
                    <div class="col-md-6 mt-2">
                        <p><b>Delivery to : </b><?= $row['useraddress'] ?></p>
                    </div>
                    <div class="col-md-6 mt-1 mb-1">
-                       <a href="address.php?ad='okk'"><button class="btn btn-primary">change</button></a>
+                       <a href="address.php?ad='okk'"><button class="btn" style="border:solid .5px black">Edit</button></a>
                    </div>
                  </div>
-               </div>
-               </div>
              
            
       <?php
          break;
          }
        }
+       
        $p=0;
         while($row=mysqli_fetch_assoc($res))
         {?>
-            
-            <div class="py-4" style="background-color:lightgray;">
-                <div class="container text-center text-sm-center text-md-center mt-3" style="border-radius:5px">
-                  <div class="row bg-light" style="border-radius:8px ;">
-                    <div class="col-lg-4 col-sm-4 col-xs-4 mt-3">
-                      <div class="shadow">
-                    <img src="<?php echo $row['pimg']?>" alt="..." height="150px" width="100px" style="border-radius:5px;">
-                    </div>
-                  </div>
+                  <div class="row bg-light mt-2" style="border-radius:8px ;">
+                    <div class="col-lg-4 col-sm-4 col-xs-4">
+                         <img src="<?php echo $row['pimg']?>" alt="..." height="300px" width="250px" style="border-radius:5px;">
+                     </div>
                   <div class="col-lg-8 col-sm-8 col-xs-8 mt-3">
-                  <h6 class="fw-bold"><?= $row['pname']; ?></h6>
-                  <hr>
-                  <p><?= $row['psdes'] ?></p>
-                    <div class="row">
-                        <div class="col-lg-3 col-sm-3 col-xs-3">
-                            <P>RS.<s class="text-danger"><?= $row['pmrp'] ?></s></P>
-                        </div>
-                        <div class="col-lg-1 col-sm-1 col-xs-1">
+                     <h6 class="fw-bold"><?= $row['pname']; ?></h6>
+                     <hr>
+                     <p><?= $row['psdes'] ?></p>
+                      <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <P><s class="text-danger"><?= $row['pmrp'] ?></s></P>
                             <P>RS.<span class="text-success"><?= $row['pprice'] ?></span></P>
                             <?php
                             $p+=$row['pprice'];
 
                             ?>
-                        </div>
                     </div>
+        </div>
+                    <div class="row">
                     <a href="del.php?dele=<?= $row['pname'] ?>">
                         <button class="btn text-center text-light mb-1 ms-5" style="background-color:red;">Remove</button></a>
-                  </div>
-                  </div>
+                        </div>
+                      </div>
             </div>
-       
-            </div>
-            </body>
-                   </html>
+            
+           
        <?php }
        ?>
-       <div class="container text-center teext-sm-center text-md-center mt-2" id="sticky">
-          <div class="row bg-light" style="border-radius:8px;">
+          <div class="row bg-light mt-2">
           <div class="col-lg-6 col-sm-6 col-xs-6 mt-3">
             <h2>Total: <?php echo $p ?></h2>
         </div>
         <div class="col-lg-6 col-sm-6 col-xs-6 mt-1 mb-1">
             <a href="sell.php?atocsell='get'"><button class="btn btn-warning px-4 mt-2">BUY</button></a>
-          </div>
         </div>
+        </div>
+        </body>
+                   </html>
        <?php
         }
    
