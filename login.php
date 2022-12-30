@@ -37,13 +37,12 @@ body{
     padding:3% 2%;
     border-radius:10px;
 }
-.txt{
-    width:100%;
-}
+
 input[type="text"],input[type="password"]{
     background-color:black; 
     color:white;
     border:1px solid gray;
+    width:100%;
 }
 .button{
     background-color:#5EC942;
@@ -127,7 +126,7 @@ input[type="checkbox"]{
                 <p class="hide">User Name:</P>
             </div>
             <div class="col-lg-6 col-sm-12">
-                <input type="text" id="lname" name="logname" placeholder="Email" class="txt">
+                <input type="text" id="lname" name="logname" placeholder="Email">
             </div>
             
         </div>
@@ -136,7 +135,7 @@ input[type="checkbox"]{
                 <p class="hide">Password:</P>
             </div>
             <div class="col-lg-6 col-sm-12">
-                <input type="password" id="lpass" name="logpass" placeholder="Enter password" class="txt">
+                <input type="password" id="lpass" name="logpass" placeholder="Enter password">
             </div>
             
         </div>
