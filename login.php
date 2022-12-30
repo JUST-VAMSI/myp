@@ -60,6 +60,10 @@ input[type="text"],input[type="password"]{
 input[type="checkbox"]{
     accent-color:cyan;
 }
+.fp:hover{
+    transform: scale(1.07,1.07);
+    transition-duration: .2s;
+}
 @media only screen and (max-width:1000px)
 {
    .start{

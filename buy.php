@@ -1,3 +1,20 @@
+<?php
+session_start();
+$check=0;
+$conn=mysqli_connect("localhost","root","","data123");
+$sqq="SELECT * FROM `admin`";
+$res=mysqli_query($conn,$sqq);
+while($row=mysqli_fetch_assoc($res))
+{
+    if($row['email'] == $_SESSION['uname'])
+    {
+        $check=1;
+        break;
+    }
+}
+if($check==1)
+{
+?>
 <html>
     <head>
         <title>form</title>
@@ -71,3 +88,9 @@
     
 </body>
 </html>
+<?php
+}
+else{
+    echo 'your are not eligible to open this page';
+}
+?>
