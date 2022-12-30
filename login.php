@@ -20,44 +20,145 @@ body{
         background-attachment:fixed;
         background-size:cover;
     }
-    td {
-    padding: 5px;
+    .start{
+        margin-top:5%;
+        color:#f0f0f0;
+    }
+    .end{
+        display:none;
+    }
+    .sma{
+        display:none;
+    }
+.container{
+    background-color:rgba(0,0,0,0.7);
+    color:white;
+    width:50%;
+    padding:3% 2%;
+    border-radius:10px;
 }
+.txt{
+    width:100%;
+}
+input[type="text"],input[type="password"]{
+    background-color:black; 
+    color:white;
+    border:1px solid gray;
+}
+.button{
+    background-color:#5EC942;
+    font-size:20px;
+    color:#f0f0f0;
+    width:100px;
+    border:1px solid black;
+    border-radius:7px;
+}
+.button:hover{
+    transform: scale(1.2,1.2);
+    transition-duration: .2s;
+}
+input[type="checkbox"]{
+    accent-color:cyan;
+}
+@media only screen and (max-width:1000px)
+{
+   .start{
+    display:none;
+   }
+   .end{
+        display:inline-block;
+        margin-top:30%;
+        color:#f0f0f0;
+        font-size:90px;
+    }
+    .sma{
 
+        display:inline-block;
+        font-size:30px;
+    }
+   .container{
+    margin-top:20%;
+    width:100%;
+    height:1000px;
+   }
+   .hide{
+    display:none;
+   }
+   .row input[type="text"],input[type="password"]{
+    margin-top:10%;
+   }
+   input[type="text"],input[type="password"]{
+    height:90px;
+    font-size:40px;
+   }
+   input[type="checkbox"]{
+    height:30px;
+    width:30px;
+
+   }
+   .sp{
+    font-size:40px;
+   }
+   .fp{
+    font-size:40px;
+   }
+   .button{
+    width:180px;
+    height:70px;
+    font-size:36px;
+   }
+}
     </style>
     
     </head>
-<body class=" text-center mt-5" >
-<h1 class="text-success">Login Form</h1>
-         <pre><p class="text-light">Don't have an account? Please <a href="pro.php" name="log" class="text-warning">Register</a></p></pre>
-<div class="container bg-dark text-light d-flex justify-content-center" style="border-radius:10px; width:50%;height:100%;">
-    <form action="check.php" method="post" class="text-center" style="padding-top:20px;" class="form-control form-control-sm" >
-    <table>
-
-        <tr>
-            <td><label class="text-light">User Name:</label></td>
-            <td><input type="text" id="lname" name="logname" class="form-control form-control-sm" placeholder="Email"></td>
-        </tr>
-        <tr>
-            <td><label class="text-light">Password:</label></td>
-            <td><input type="password" id="lpass" name="logpass" class="form-control form-control-sm" placeholder="Enter password"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="checkbox" onclick="check();" name="lcheck" id="lcheckbox"><label class="text-light" style="margin-left:2px;">show password</label></td>
-        </tr>
+<body class=" text-center" >
+<h1 class="start">Sign in</h1>
+         <pre><p class="text-light hide">Don't have an account? Please <a href="pro.php" name="log" class="text-warning">Register</a></p></pre>
+    <form action="check.php" method="post" class="text-center">
+    <div class="container">
+    <h1 class="end">Sign in</h1>
+    <pre><p class="text-light sma">Don't have an account? Please <a href="pro.php" name="log" class="text-warning">Register</a></p></pre>
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <p class="hide">User Name:</P>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <input type="text" id="lname" name="logname" placeholder="Email" class="txt">
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <p class="hide">Password:</P>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <input type="password" id="lpass" name="logpass" placeholder="Enter password" class="txt">
+            </div>
+            
+        </div>
+        <div class="row">
+        <div class="col-lg-3 col-sm-12">
+                
+            </div>
+            <div class="col-lg-9 col-sm-12">
+                <pre class="sp"><input type="checkbox" onclick="check();" name="lcheck" id="lcheckbox">show password</pre>
+            </div>
+            
+        </div>
         
-        <tr>
-            <td></td>
-            <td><a href="change.php">forgot password</a></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="submit" value="submit" class="bg-success" style="border-radius:5px;margin-bottom:5%;" name="siva">
-        </tr>
-        
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <a href="change.php" class="btn text-primary fp">forgot password</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <input type="submit" value="submit" class="button" name="siva">
+            </div>
+        </div>
+        </div> 
     </form> 
-</div> 
+
 </body>
 </html> 
 
