@@ -27,12 +27,14 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
                 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
                 <style>
-                  #sticky{
-                    position: -webkit-sticky;
-                    position: sticky;
-                    bottom: 0;
-
-                  }
+                 @media screen and (max-width:1000px){
+                  #last{
+                        position:-webkit-sticky;
+                        position:sticky;
+                        bottom:0;
+                        
+                    }
+                 }
                   </style>
                 </head>
                 <body class="text-center text-sm-center" style="background-color:#f0f0f0;">
@@ -107,7 +109,7 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
            
        <?php }
        ?>
-          <div class="row bg-light mt-2">
+          <div class="row bg-light mt-2" id="last">
           <div class="col-lg-6 col-sm-6 col-xs-6 mt-3">
             <h2>Total: <?php echo $p ?></h2>
         </div>
