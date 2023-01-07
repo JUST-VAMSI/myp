@@ -17,12 +17,22 @@ if(isset($_SESSION['uname']))
           transform:scale(1.06);
           transition-duration: .2s;
       }
+      @media only screen and (max-width:1000px)
+      {
+        .h{
+          font-size:50px;
+        }
+        .nav-link,.dropdown-item,.ic{
+          font-size:30px;
+        }
+        
+      }
     </style>
     </head>
     <body class="justify-content-center text-center text-sm-center"style="background-color:#f0f0f0;">
     <div class="row container d-flex justify-content-center" style="width:100%;padding-left:18%;">
-    <h1 class="text-center">FURNITURE</h1>
-    <h2 class="text-center">ALL IN ONE</h2>
+    <h1 class="text-center h">FURNITURE</h1>
+    <h2 class="text-center h">ALL IN ONE</h2>
     </div>
     <nav class="navbar navbar-expand-lg text-light bg-primary fw-bold text-center text-sm-center sticky-top" style="color:white;">
 <div class="container-fluid">
@@ -71,8 +81,8 @@ PRODUCTS
 </li>
 </ul>
 
-<a href="atoc.php?ac='helo'"><button class="btn btn-primary px-4 f-right"><i class="fa fa-shopping-cart me-2"></i></button></a>
-<a href="order.php?main='order'"><button class="btn btn-primary px-4 f-right"><i class="bi bi-bag-fill"></i></button></a>
+<a href="atoc.php?ac='helo'"><button class="btn btn-primary px-4 f-right ic"><i class="fa fa-shopping-cart me-2"></i></button></a>
+<a href="order.php?main='order'"><button class="btn btn-primary px-4 f-right ic"><i class="bi bi-bag-fill"></i></button></a>
 </div>
 </div>
 </nav>
@@ -121,8 +131,8 @@ PRODUCTS
     $result=mysqli_query($connect,$sql_query);
     ?>
 
-<h2  style="margin-top:3%;">PRODUCTS</h2>
-<h3 class="text-primary text-center" id="door">DOORS</h3>
+<h2  style="margin-top:3%;" class="h">PRODUCTS</h2>
+<h3 class="text-primary text-center h" id="door">DOORS</h3>
 <hr>
 
 <div class="row">
@@ -132,19 +142,19 @@ PRODUCTS
         {
           if($row['proid']==6){
             ?>
-            <h3 class="text-primary" id="cot">COTS</h3>
+            <h3 class="text-primary h" id="cot">COTS</h3>
             <hr>
             <?php
             }
              if($row['proid']==11){
             ?>
-            <h3 class="text-primary" id="sofa">SOFAS</h3>
+            <h3 class="text-primary h" id="sofa">SOFAS</h3>
             <hr>
             <?php
             }
             if($row['proid']==16){
               ?>
-              <h3 class="text-primary" id="dining">DINING TABLES</h3>
+              <h3 class="text-primary h" id="dining">DINING TABLES</h3>
               <hr>
               <?php
               }
@@ -166,15 +176,15 @@ PRODUCTS
 <hr>
 <footer class="sticky-bottom text-center text-sm-center bg-secondary">
 <section class="mb-4 text-center">
-        <a class="btn btn-outline-light m-1" href="https://www.facebook.com/sai.h.5437" target="_blank"><i class="fab fa-facebook-f"></i></a>
-         <a class="btn btn-outline-light m-1" href="https://wa.me/message/CPLWJQ3BJTYXB1" target="_blank"> <i class="fab fa-whatsapp"></i></a>
-         <a class="btn btn-outline-light m-1"href="https://www.instagram.com/artist_vamsi/" target="_blank"><i class="fab fa-instagram"></i></a>
-         <a class="btn btn-outline-light m-1" href="https://www.linkedin.com/in/vamsi-veeramalla-15137724a/" target="_blank"> <i class="fab fa-linkedin-in"></i></a>
-         <a class="btn btn-outline-light m-1" href="https://github.com/JUST-VAMSI" target="_blank"><i class="fab fa-github"></i></a>
+        <a class="btn btn-outline-light m-1 ic" href="https://www.facebook.com/sai.h.5437" target="_blank"><i class="fab fa-facebook-f"></i></a>
+         <a class="btn btn-outline-light m-1 ic" href="https://wa.me/message/CPLWJQ3BJTYXB1" target="_blank"> <i class="fab fa-whatsapp"></i></a>
+         <a class="btn btn-outline-light m-1 ic" href="https://www.instagram.com/artist_vamsi/" target="_blank"><i class="fab fa-instagram"></i></a>
+         <a class="btn btn-outline-light m-1 ic" href="https://www.linkedin.com/in/vamsi-veeramalla-15137724a/" target="_blank"> <i class="fab fa-linkedin-in"></i></a>
+         <a class="btn btn-outline-light m-1 ic" href="https://github.com/JUST-VAMSI" target="_blank"><i class="fab fa-github"></i></a>
          
 </section>
     <div
-         class="text-center p-3"
+         class="text-center p-3 ic"
          style="background-color: rgba(0, 0, 0, 0.2)"
          >
       © 2022 Copyright: carpenter's
