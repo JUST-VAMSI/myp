@@ -110,7 +110,10 @@ input[type="checkbox"],input[type="radio"]{
     color:coral;
    }
    .button1,.button2{
-    margin-top:2%;
+    margin-top:5%;
+    font-size:40px;
+    width:40%;
+    height:90%;
    }
 }
 </style>

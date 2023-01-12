@@ -13,7 +13,7 @@ if(isset($_SESSION['uname']))
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     
     <style>
-      .col-sm-4:hover{
+      .col-sm-6:hover{
           transform:scale(1.06);
           transition-duration: .2s;
       }
@@ -23,6 +23,21 @@ if(isset($_SESSION['uname']))
           font-size:50px;
         }
         .nav-link,.dropdown-item,.ic{
+          font-size:30px;
+        }
+        .col-sm-6 img{
+          width:400px;
+          height:460px;
+          margin-top:5%;
+        }
+        .col-sm-6 .card-title{
+          margin-top:4%;
+          font-size:30px;
+        }
+        .col-sm-6 .card-text{
+          font-size:30px;
+        }
+        .col-sm-6 .btn-warning{
           font-size:30px;
         }
         
@@ -132,27 +147,32 @@ PRODUCTS
     ?>
 
 <h2  style="margin-top:3%;" class="h">PRODUCTS</h2>
-<h3 class="text-primary text-center h" id="door">DOORS</h3>
-<hr>
+
 
 <div class="row">
 <?php
       if($result->num_rows > 0){
     while($row=mysqli_fetch_assoc($result))
         {
-          if($row['proid']==6){
+          if($row['proid']==1){
+            ?>
+            <h3 class="text-primary text-center h" id="door">DOORS</h3>
+            <hr>
+            <?php
+          }
+          if($row['proid']==7){
             ?>
             <h3 class="text-primary h" id="cot">COTS</h3>
             <hr>
             <?php
             }
-             if($row['proid']==11){
+             if($row['proid']==13){
             ?>
             <h3 class="text-primary h" id="sofa">SOFAS</h3>
             <hr>
             <?php
             }
-            if($row['proid']==16){
+            if($row['proid']==19){
               ?>
               <h3 class="text-primary h" id="dining">DINING TABLES</h3>
               <hr>
@@ -161,7 +181,7 @@ PRODUCTS
               ?>
 
             
-                <div class="col-sm-4 col-lg-3 text-center mt-2" style="border-radius:5px;">
+                <div class="col-sm-6 col-lg-3 text-center mt-2" style="border-radius:5px;">
                 <img src="<?php echo $row['proimg']?>" alt="..." height="300px" width="250px" style="border-radius:8px;">
                 <h6 class="card-title" name="pname"><?php echo $row['proname']?></h6>
                   <p class="card-text">RS.<?php echo $row['proprice']?></p>
