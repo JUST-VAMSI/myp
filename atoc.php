@@ -1,7 +1,7 @@
 <?php
 session_start();
 $conn=mysqli_connect("localhost","root","","data123");
-if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || isset($_GET['pro'])))
+if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || isset($_GET['pro']) || isset($_GET['cart'])))
 {
     $q="SELECT * FROM `detail`";
     $result=mysqli_query($conn,$q);

@@ -2,7 +2,12 @@
 session_start();
 $connect=mysqli_connect("localhost","root","","data123");
 if(isset($_SESSION['uname']))
-{    
+{ 
+  if(isset($_GET['cart'])){
+    ?>
+    <script>alert("successfully added")</script>
+    <?php
+  }   
   ?>
     <!DOCTYPE html>
     <html>
