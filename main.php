@@ -194,7 +194,7 @@ PRODUCTS
               ?>
 
             
-                <div class="col-sm-6 col-lg-3 text-center mt-2" style="border-radius:5px;">
+                <div class="col-sm-6 col-lg-4 text-center mt-2" style="border-radius:5px;">
                 <img src="<?php echo $row['proimg']?>" alt="..." height="300px" width="250px" style="border-radius:8px;">
                 <h6 class="card-title" name="pname"><?php echo $row['proname']?></h6>
                   <p class="card-text">RS.<?php echo $row['proprice']?></p>
