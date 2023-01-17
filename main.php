@@ -18,9 +18,12 @@ if(isset($_SESSION['uname']))
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     
     <style>
-      .col-sm-6:hover{
+      .rowone .col-sm-6:hover{
           transform:scale(1.06);
           transition-duration: .2s;
+      }
+      .contactrow{
+        padding-top:2%;
       }
       @media only screen and (max-width:1000px)
       {
@@ -45,7 +48,12 @@ if(isset($_SESSION['uname']))
         .col-sm-6 .btn-warning{
           font-size:30px;
         }
-        
+        .contactrow .col-lg-6 h1{
+          font-size:40px;
+        }
+        .contactrow .col-lg-6 h6{
+          font-size:20px;
+        }
       }
     </style>
     </head>
@@ -94,7 +102,7 @@ PRODUCTS
 <a class="nav-link text-light" href="#gallery">GALLERY</a>
 </li>
 <li class="nav-item">
-<a class="nav-link text-light" href="#">CONTACT US</a>
+<a class="nav-link text-light" href="#contactus">CONTACT US</a>
 </li>
 <li class="nav-item text-light">
 <a class="nav-link text-light" href="logout.php" name="logout">LOGOUT</a>
@@ -154,7 +162,7 @@ PRODUCTS
 <h2  style="margin-top:3%;" class="h">PRODUCTS</h2>
 
 
-<div class="row">
+<div class="row rowone">
 <?php
       if($result->num_rows > 0){
     while($row=mysqli_fetch_assoc($result))
@@ -200,6 +208,22 @@ PRODUCTS
     </div>
 <hr>
 <footer class="sticky-bottom text-center text-sm-center bg-secondary">
+  <section>
+    <div class="row contactrow">
+      <div class="col-lg-6 col-sm-6 onecol">
+        <h1 id="contactus">CONTACT US</h1>
+          <h6><b>NAME         :</b>VEERAMALLA SATHIBABU</h6>
+          <h6><b>S/O          :</b>VEERAMALLA SIVAYYA</h6>
+          <h6><b>MOBILE NO.   :</b>9912691390</h6>
+          <h6><b>VILLAGE      :</b>GANDEPALLI</h6>
+          <h6><b>STATE        :</b>A.P</h6>
+      </div>
+      <div class="col-lg-6 col-sm-6 map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15250.594835326598!2d81.9545959283756!3d17.138626666580894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37764a2a71c0cf%3A0x81a52f7cb9a3d0db!2sGandepalli%2C%20Andhra%20Pradesh%20533297!5e0!3m2!1sen!2sin!4v1673936603208!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      </div>
+    </div>
+  </section>
 <section class="mb-4 text-center">
         <a class="btn btn-outline-light m-1 ic" href="https://www.facebook.com/sai.h.5437" target="_blank"><i class="fab fa-facebook-f"></i></a>
          <a class="btn btn-outline-light m-1 ic" href="https://wa.me/message/CPLWJQ3BJTYXB1" target="_blank"> <i class="fab fa-whatsapp"></i></a>
