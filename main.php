@@ -214,6 +214,8 @@ PRODUCTS
         <h1 id="contactus">CONTACT US</h1>
           <h6><b>NAME         :</b>VEERAMALLA SATHIBABU</h6>
           <h6><b>S/O          :</b>VEERAMALLA SIVAYYA</h6>
+          <h6><b>EMAIL        :</b>VSATHIBABUVSATHIBABU51@GMAIL.COM</h6>
+          <h6><b>WORK EXPIRENCE:</b>35 YEARS</h6>
           <h6><b>MOBILE NO.   :</b>9912691390</h6>
           <h6><b>VILLAGE      :</b>GANDEPALLI</h6>
           <h6><b>STATE        :</b>A.P</h6>
