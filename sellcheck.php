@@ -23,18 +23,32 @@ if(isset($_POST['sub']) && isset($_SESSION['uname']))
                 }
 
             }
+            $chck=1;
             while($yes=mysqli_fetch_assoc($res))
             {
                 if($yes['proname']==$p)
                 {
                     $oname=$yes['proname'];
                     $oimg=$yes['proimg'];
-                    $q="INSERT INTO $he VALUES('$oname','$oimg')";
-                    mysqli_query($con,$q);
+                    $qr="SELECT * FROM $he";
+                    $reslt=mysqli_query($con,$qr);
+                    while($row=mysqli_fetch_assoc($reslt))
+                    {
+                        if($row['oname'] == $p)
+                        {
+                            $chck=0;
+                            break;
+                        }
+                    }
+                    if($chck==1)
+                    {
+                        $q="INSERT INTO $he VALUES('$oname','$oimg')";
+                        mysqli_query($con,$q);
+                    }
                     break;
                 }
             }
-                
+   
         }
         if(isset($_GET['rand']))
         {
@@ -46,8 +60,10 @@ if(isset($_POST['sub']) && isset($_SESSION['uname']))
             {
                 if($u == $row['email'])
                 {
+                    
                     $got=$row['firstname'];
                     $g='ord';
+                    $goted = $got.$g;
                     $qu="SELECT * FROM $got";
                     $res1=mysqli_query($con,$qu);
                     while($rem=mysqli_fetch_assoc($res1))
@@ -61,8 +77,8 @@ if(isset($_POST['sub']) && isset($_SESSION['uname']))
 
                 }
             }
-            
-           
+
+
         }
         if(($_POST['s'] == $r) || ($_POST['s'] == $rr) )
         {
@@ -117,6 +133,9 @@ if(isset($_POST['sub']) && isset($_SESSION['uname']))
     </html>
         
    <?php $got="yes";
+    }
+    else{
+        header("Location: main.php");
     }
 }
    if($got!="yes"){
