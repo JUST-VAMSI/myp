@@ -18,12 +18,21 @@ if(isset($_SESSION['uname']))
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     
     <style>
+      .rowone .col-sm-6{
+          margin:2%;
+          border-radius:5px;
+          width:400px;
+          background-color:white;
+      }
       .rowone .col-sm-6:hover{
           transform:scale(1.06);
           transition-duration: .2s;
       }
       .contactrow{
         padding-top:2%;
+      }
+      .buttonbuy{
+        margin-bottom:2%;
       }
       @media only screen and (max-width:1000px)
       {
@@ -33,9 +42,15 @@ if(isset($_SESSION['uname']))
         .nav-link,.dropdown-item,.ic{
           font-size:30px;
         }
-        .col-sm-6 img{
+        .rowone .col-sm-6{
           width:400px;
-          height:460px;
+      }
+      .rowone .col-sm-6{
+          width:450px;
+      }
+        .col-sm-6 img{
+          width:300px;
+          height:300px;
           margin-top:5%;
         }
         .col-sm-6 .card-title{
@@ -124,7 +139,7 @@ PRODUCTS
 </div>
 <div class="carousel-inner">
 <div class="carousel-item active">
-<img src="cupslide10.jpg" class="d-block" alt="..." aspect-ratio="1032/502" height="500px" width="100%">
+<img src="dainnet3-transformed.jpeg" class="d-block" alt="..." aspect-ratio="1280/720" height="500px" width="100%">
 </div>
 <div class="carousel-item">
 <img src="cotnet1.jpg" class="d-block" alt="..." aspect-ratio="1500/1000" height="500px" width="100%">
@@ -133,10 +148,10 @@ PRODUCTS
 <img src="sofanet2.jpeg" class="d-block" alt="..." aspect-ratio="1280/698" height="500px" width="100%">
 </div>
 <div class="carousel-item">
-<img src="dainnet3-transformed.jpeg" class="d-block" alt="..." aspect-ratio="1280/720" height="500px" width="100%">
+<img src="c7.jpg" class="d-block" alt="..." aspect-ratio="1802/1200" height="500px" width="100%">
 </div>
 <div class="carousel-item">
-<img src="door6.jpg" class="d-block" alt="..." aspect-ratio="1136/852" height="500px" width="100%">
+<img src="pexels-tirachard-kumtanom-887822.jpg" class="d-block" alt="..." aspect-ratio="5472/3648" height="500px" width="100%">
 </div>
 </div>
 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -194,11 +209,11 @@ PRODUCTS
               ?>
 
             
-                <div class="col-sm-6 col-lg-4 text-center mt-2" style="border-radius:5px;">
+                <div class="col-sm-6 col-lg-4 text-center product">
                 <img src="<?php echo $row['proimg']?>" alt="..." height="300px" width="250px" style="border-radius:8px;">
                 <h6 class="card-title" name="pname"><?php echo $row['proname']?></h6>
                   <p class="card-text">RS.<?php echo $row['proprice']?></p>
-                   <a href="product.php?prod=<?=$row['proname'] ?>" class="btn btn-warning"> BUY NOW</a>
+                   <a href="product.php?prod=<?=$row['proname'] ?>" class="btn btn-warning buttonbuy"> BUY NOW</a>
           </div>
              <?php  
         

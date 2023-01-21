@@ -238,7 +238,7 @@
                   <a href="cart.php?car=<?= $row['proname']?>"><button class="button1"><i class="fa fa-shopping-cart me-2"></i>Add to Cart</button></a>
                 </div>
                 <div class="col-lg-6 col-sm-6">
-                  <a href="beforesell.php?sell=<?= $row['proname']?>"><button class="button2">BUY</button></a>
+                  <a href="beforesell.php?sell=<?= $row['proname']?>"><button class="button2">BUY NOW</button></a>
                 </div>
           </div>
           </div>

@@ -6,12 +6,12 @@
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
             <style>
-                body{
-                    background-color:#f0f0f0;
+                img{
+                    margin-top:10%;
                 }
                 h1{
-                    margin-top:20%;
                     color:green;
+                    font-family:italic;
                 }
                 .buttonshopping{
                     font-size:30px;
@@ -25,8 +25,12 @@
                     margin-right:2%;
                 }
                 @media only screen and (max-width:1000px){
+                    img{
+                        margin-top:50%;
+                        width:350px;
+                        height:300px;
+                    }
                     h1{
-                        margin-top:60%;
                         font-size:50px;
                     }
                     .buttonshopping{
@@ -38,8 +42,8 @@
             </style>
         </head>
         <body class="text-center text-sm-center">
-            <!-- <img src="gif.gif" alt="" width="250px" height="200px"> -->
-            <h1><i class="bi bi-check-circle-fill"> </i>order success</h1>
+            <img src="order.gif" alt="" width="250px" height="200px">
+            <h1>order success</h1>
             <div class="container-fluid">
                 <a href="main.php" aria-current="page"><button class="buttonshopping"><i class="fa fa-shopping-cart"></i>Continue shopping</button></a>
                 </div>
