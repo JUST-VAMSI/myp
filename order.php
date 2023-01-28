@@ -74,6 +74,10 @@ if(isset($_SESSION['uname']) && isset($_GET['main']))
                     width:30%;
                     height:20%;
                   }
+                  .buttonview:hover{
+                    transform:scale(1.06);
+                    transition-duration:.2s;
+                  }
                   @media only screen and (max-width:1000px){
                     .fas{
                       display:inline-block;

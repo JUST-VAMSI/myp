@@ -110,6 +110,10 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
                     border-radius:5px;
 
                   }
+                  .buttonedit:hover,.buttonremove:hover,.buttonplaceorder:hover{
+                    transform:scale(1.06);
+                    transition-duration:.2s;
+                  }
                  @media screen and (max-width:1000px){
                   .fas{
                     display:inline-block;

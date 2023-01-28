@@ -18,6 +18,10 @@ if(isset($_SESSION['uname']))
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     
     <style>
+      .rowone{
+        justify-content:center;
+        text-align:center;
+      }
       .rowone .col-sm-6{
           margin:2%;
           border-radius:5px;
@@ -34,6 +38,35 @@ if(isset($_SESSION['uname']))
       .buttonbuy{
         margin-bottom:2%;
       }
+      .col-sm-6 img{
+        margin-top:2%;
+      }
+      .contactrow .col-lg-4,.contactrow .col-lg-3,.contactrow .col-lg-5{
+        padding-left:2%;
+      }
+      .onecol{
+       text-align:left;
+      }
+      .twocol2{
+        text-align:left;
+      }
+      .onecol div{
+        margin-top:5%;
+      }
+      .twocol2 div{
+        margin-top:2.8%;
+      }
+      .insta{
+        color:#E4405F;
+        background-color:white;
+      }
+      .linkin{
+        background-color:blue;
+      }
+      .git{
+        color:#4183c4;
+        background-color:white;
+      }
       @media only screen and (max-width:1000px)
       {
         .h{
@@ -42,11 +75,8 @@ if(isset($_SESSION['uname']))
         .nav-link,.dropdown-item,.ic{
           font-size:30px;
         }
-        .rowone .col-sm-6{
-          width:400px;
-      }
       .rowone .col-sm-6{
-          width:450px;
+          width:440px;
       }
         .col-sm-6 img{
           width:300px;
@@ -63,11 +93,14 @@ if(isset($_SESSION['uname']))
         .col-sm-6 .btn-warning{
           font-size:30px;
         }
-        .contactrow .col-lg-6 h1{
+        .contactrow h1{
           font-size:40px;
         }
-        .contactrow .col-lg-6 h6{
-          font-size:20px;
+        .contactrow .col-lg-3 h6, .contactrow .col-lg-5 h6{
+          font-size:25px;
+        }
+        .map{
+          display:none;
         }
       }
     </style>
@@ -175,8 +208,6 @@ PRODUCTS
     ?>
 
 <h2  style="margin-top:3%;" class="h">PRODUCTS</h2>
-
-
 <div class="row rowone">
 <?php
       if($result->num_rows > 0){
@@ -225,28 +256,39 @@ PRODUCTS
 <footer class="sticky-bottom text-center text-sm-center bg-secondary">
   <section>
     <div class="row contactrow">
-      <div class="col-lg-6 col-sm-6 onecol">
-        <h1 id="contactus">CONTACT US</h1>
-          <h6><b>NAME         :</b>VEERAMALLA SATHIBABU</h6>
-          <h6><b>S/O          :</b>VEERAMALLA SIVAYYA</h6>
-          <h6><b>EMAIL        :</b>VSATHIBABUVSATHIBABU51@GMAIL.COM</h6>
-          <h6><b>WORK EXPIRENCE:</b>35 YEARS</h6>
-          <h6><b>MOBILE NO.   :</b>9912691390</h6>
-          <h6><b>VILLAGE      :</b>GANDEPALLI</h6>
-          <h6><b>STATE        :</b>A.P</h6>
+      <h1 id="contactus">CONTACT US</h1>
+      <div class="col-lg-3 col-sm-3 onecol">
+       <div><h6><b>NAME:</b></h6></div>
+       <div><h6><b>S/O:</b></h6></div>
+       <div><h6><b>EMAIL:</b></h6></div>
+       <div><h6><b>MOBILE NO.:</b></h6></div>
+       <div><h6><b>WORK EXPIRENCE:</b></h6></div>
+       <div><h6><b>VILLAGE:</b></h6></div>
+       <div><h6><b>DISTRICT:</b></h6></div>
+       <div><h6><b>STATE:</b></h6></div>
       </div>
-      <div class="col-lg-6 col-sm-6 map">
+      <div class="col-lg-5 col-sm-5 twocol2">
+       <div><h6>VEERAMALLA SATHIBABU</h6></div>
+       <div><h6>VEERAMALLA SIVAYYA</h6></div>
+       <div><h6>vsathibabuvsathibabu51@gmail.com</h6></div>
+       <div><h6>9912691390</h6></div>
+       <div><h6>35 YEARS</h6></div>
+       <div><h6>GANDEPALLI</h6></div>
+       <div><h6>KAKINADA</h6></div>
+       <div><h6>A.P</h6></div>
+      </div>
+      <div class="col-lg-4 col-sm-4 map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15250.594835326598!2d81.9545959283756!3d17.138626666580894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37764a2a71c0cf%3A0x81a52f7cb9a3d0db!2sGandepalli%2C%20Andhra%20Pradesh%20533297!5e0!3m2!1sen!2sin!4v1673936603208!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
       </div>
     </div>
   </section>
 <section class="mb-4 text-center">
-        <a class="btn btn-outline-light m-1 ic" href="https://www.facebook.com/sai.h.5437" target="_blank"><i class="fab fa-facebook-f"></i></a>
-         <a class="btn btn-outline-light m-1 ic" href="https://wa.me/message/CPLWJQ3BJTYXB1" target="_blank"> <i class="fab fa-whatsapp"></i></a>
-         <a class="btn btn-outline-light m-1 ic" href="https://www.instagram.com/artist_vamsi/" target="_blank"><i class="fab fa-instagram"></i></a>
-         <a class="btn btn-outline-light m-1 ic" href="https://www.linkedin.com/in/vamsi-veeramalla-15137724a/" target="_blank"> <i class="fab fa-linkedin-in"></i></a>
-         <a class="btn btn-outline-light m-1 ic" href="https://github.com/JUST-VAMSI" target="_blank"><i class="fab fa-github"></i></a>
+        <a class="btn btn-outline-light m-1 ic bg-primary" href="https://www.facebook.com/sai.h.5437" target="_blank"><i class="fab fa-facebook-f"></i></a>
+         <a class="btn btn-outline-light m-1 ic bg-success" href="https://wa.me/message/CPLWJQ3BJTYXB1" target="_blank"> <i class="fab fa-whatsapp"></i></a>
+         <a class="btn btn-outline-light m-1 ic insta" href="https://www.instagram.com/artist_vamsi/" target="_blank"><i class="fab fa-instagram"></i></a>
+         <a class="btn btn-outline-light m-1 ic linkin" href="https://www.linkedin.com/in/vamsi-veeramalla-15137724a/" target="_blank"> <i class="fab fa-linkedin-in"></i></a>
+         <a class="btn btn-outline-light m-1 ic git" href="https://github.com/JUST-VAMSI" target="_blank"><i class="fab fa-github"></i></a>
          
 </section>
     <div
