@@ -16,7 +16,10 @@ if(isset($_SESSION['uname']))
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/protobufjs/7.2.0/protobuf.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- link swiper css-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <style>
       .rowone{
         justify-content:center;
@@ -57,8 +60,20 @@ if(isset($_SESSION['uname']))
         margin-top:2.8%;
       }
       .insta{
-        color:#E4405F;
-        background-color:white;
+        background-image: linear-gradient(
+          to bottom right,
+          #405DE6,
+          #5B51D8,
+          #833AB4,
+          #C13584,
+          #E1306C,
+          #FD1D1D,
+          #F56040,
+          #F77737,
+          #FCAF45,
+          #FFDC80
+
+        );
       }
       .linkin{
         background-color:blue;
@@ -102,10 +117,20 @@ if(isset($_SESSION['uname']))
         .map{
           display:none;
         }
+        .swiper-slide img {
+          width: 250px;
+          height: 200px;
+        }
+        .swiper-slide{
+          padding:4%;
+        }
+        .gal{
+          font-size:40px;
+        }
       }
     </style>
     </head>
-    <body class="justify-content-center text-center text-sm-center"style="background-color:#f0f0f0;">
+    <body class="justify-content-center text-center text-sm-center" style="background-color:#f0f0f0;">
     <div class="row container d-flex justify-content-center" style="width:100%;padding-left:18%;">
     <h1 class="text-center h">FURNITURE</h1>
     <h2 class="text-center h">ALL IN ONE</h2>
@@ -253,6 +278,114 @@ PRODUCTS
         ?>
     </div>
 <hr>
+<h1 class="text-primary gal" id="gallery">GALLERY</h1>
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div>
+          <img src="gal1.jpg" alt="">
+          <h1>Gallery ID:1</h1>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star"></i>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="gal2.jpg" alt="">
+          <h1>Gallery ID:2</h1>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="gal3.jpg" alt="">
+          <h1>Gallery ID:3</h1>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="gal4.jpg" alt="">
+          <h1>Gallery ID:4</h1>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star"></i>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="gal5.jpg" alt="">
+          <h1>Gallery ID:5</h1>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="gal6.jpg" alt="">
+          <h1>Gallery ID:6</h1>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star"></i>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="gal7.jpg" alt="">
+          <h1>Gallery ID:7</h1>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star"></i>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="gal8.jpg" alt="">
+          <h1>Gallery ID:8</h1>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <img src="gal9.jpg" alt="">
+          <h1>Gallery ID:9</h1>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+          <i class="fa fa-star text-primary"></i>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+ 
 <footer class="sticky-bottom text-center text-sm-center bg-secondary">
   <section>
     <div class="row contactrow">
@@ -309,3 +442,24 @@ else
     header('Location: login.php');
 }
 ?>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    slidesPerGroup: 3,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
