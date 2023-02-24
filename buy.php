@@ -26,21 +26,21 @@ if($check==1)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <style>
     body{
-        background-image:url('background1.jpg');
+        /* background-image:url('background1.jpg');
         background-repeat:no-repeat;
         background-attachment:fixed;
-        background-size:cover;
+        background-size:cover; */
+        background-color:#f0f0f0;
     }
     .start{
     margin-top:3%;
-    color:#f0f0f0;
+    /* color:#f0f0f0; */
 }
 .end{
         display:none;
     }
 .container{
-    background-color:rgba(0,0,0,0.6);
-    color:white;
+    background-color:#f0f0f0;
     width:50%;
     padding:2% 2%;
     border-radius:10px;
@@ -49,9 +49,8 @@ if($check==1)
     display:none;
 }
 input[type="text"],input[type="password"],textarea,input[type="email"],input[type="number"],input[type="file"]{
-    background-color:black; 
-    color:white;
     border:1px solid gray;
+    border-radius:8px;
     width:100%;
     margin-top:2%;
 }
@@ -60,8 +59,8 @@ input[type="checkbox"],input[type="radio"]{
 }
 .button1{
     background-color:red;
-    color:black;
-    border:1px solid;
+    color:white;
+    border:1px solid black;
     border-radius:5px;
     width:80px;
     font-size:18px;
@@ -91,7 +90,7 @@ input[type="checkbox"],input[type="radio"]{
    .end{
         display:inline-block;
         margin-top:2%;
-        color:#f0f0f0;
+        /* color:#f0f0f0; */
         font-size:90px;
     }
     .hide{

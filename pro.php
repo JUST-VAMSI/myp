@@ -8,46 +8,57 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <style>
     body{
-        background-image:url('background1.jpg');
+        /* background-image:url('background1.jpg');
         background-repeat:no-repeat;
         background-attachment:fixed;
-        background-size:cover;
+        background-size:cover; */
+        background-color:#f0f0f0;
     }
     
 .start{
     margin-top:3%;
-    color:#f0f0f0;
+    /* color:#f0f0f0; */
+    color:green;
 }
 .end{
         display:none;
     }
 .container{
-    background-color:rgba(0,0,0,0.7);
-    color:white;
+    /* background-color:rgba(0,0,0,0.7); */
+    background-color:white;
     width:50%;
     padding:2% 2%;
     border-radius:10px;
+    box-shadow:2px 2px 2px 2px gray;
 }
 .sma{
     display:none;
 }
 input[type="text"],input[type="password"],textarea,input[type="email"],input[type="number"]{
-    background-color:black; 
-    color:white;
+    /* background-color:rgba(0,0,0,0.5);  */
+    background-color:white;
+    border-radius:8px;
+    color:black;
     border:1px solid gray;
     width:100%;
+    height:100%;
 }
 input[type="checkbox"],input[type="radio"]{
     accent-color:cyan;
 }
+.row{
+    margin-top:2%;
+    justify-content:center;
+   }
 .button1{
     background-color:red;
-    color:black;
-    border:1px solid;
+    color:#f0f0f0;
+    border:1px solid black;
     border-radius:5px;
     width:80px;
     font-size:18px;
     margin-top:2%;
+
 }
 .button2{
     background-color:#5EC942;
@@ -73,7 +84,7 @@ input[type="checkbox"],input[type="radio"]{
    .end{
         display:inline-block;
         margin-top:2%;
-        color:#f0f0f0;
+        color:green;
         font-size:90px;
     }
     .hide{
@@ -88,6 +99,7 @@ input[type="checkbox"],input[type="radio"]{
     width:100%;
     height:auto;
     background:none;
+    box-shadow:none;
    }
     .row input[type="text"],input[type="password"],textarea,input[type="email"],input[type="number"]{
     margin-top:3%;
@@ -120,11 +132,11 @@ input[type="checkbox"],input[type="radio"]{
     </head>
 <body class="text-center">
     <h1 class="start">Sign up</h1>
-        <pre><p class="text-light hide">Already an user? Please <a href="login.php" name="log" class="text-warning">login</a></p></pre>
+        <pre><p class="hide">Already an user? Please <a href="login.php" name="log" class="text-primary">login</a></p></pre>
     <form onsubmit="return hello();" action="connect.php" method="post">
     <div class="container">
     <h1 class="end">Sign up</h1>
-    <pre><p class="text-light sma">Already an user? Please <a href="login.php" name="log" class="text-warning">login</a></p></pre>
+    <pre><p class="sma">Already an user? Please <a href="login.php" name="log" class="text-primary">login</a></p></pre>
             <div class="row">
                 <div class="col-lg-6 col-sm-12">
                     <p class="hide">First name:</p>
@@ -216,7 +228,7 @@ input[type="checkbox"],input[type="radio"]{
     
 </body>
 </html>
-
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
         function Firstname()
         {
@@ -264,7 +276,6 @@ input[type="checkbox"],input[type="radio"]{
         {
             var v=document.getElementById("CPass").value;
             var l=document.getElementById("RePass").value;
-            var reg=/^[a-z A-Z]+\d+[! @ # $ % ^ & * ?]+/;
             if(v.length>=8 && v==l)
             {
                 document.getElementById("RePass").style.border="2px solid green"

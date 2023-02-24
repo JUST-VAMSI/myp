@@ -3,9 +3,7 @@ session_start();
 $con=mysqli_connect("localhost","root","","data123");
 if(isset($_POST['sub']) && isset($_SESSION['uname']))
 {
-    $r=0;
-    $rr=0;
-        if(isset($_GET['ran']) && isset($_GET['pp']))
+        if(isset($_GET['ran']) && isset($_GET['pp']) && ($_POST['s'] == $_GET['ran']))
         {
             $r=$_GET['ran'];
             $p=$_GET['pp'];
@@ -32,12 +30,12 @@ if(isset($_POST['sub']) && isset($_SESSION['uname']))
                     $oimg=$yes['proimg'];
                     $q="INSERT INTO $he VALUES('$oname','$oimg')";
                     mysqli_query($con,$q);
-                    break;
+                    header("Location: conformorder.php");
                 }
             }
    
         }
-        if(isset($_GET['rand']))
+        elseif(isset($_GET['rand']))
         {
             $rr=$_GET['rand'];
             $u=$_SESSION['uname'];
@@ -45,7 +43,7 @@ if(isset($_POST['sub']) && isset($_SESSION['uname']))
             $rest=mysqli_query($con,$detq);
             while($row=mysqli_fetch_assoc($rest))
             {
-                if($u == $row['email'])
+                if(($u == $row['email']) && ($_POST['s'] == $_GET['rand']))
                 {
                     
                     $got=$row['firstname'];
@@ -61,19 +59,16 @@ if(isset($_POST['sub']) && isset($_SESSION['uname']))
                             $q="INSERT INTO $got1 VALUES('$oname','$oimg')";
                             mysqli_query($con,$q);
                     }
+                    header("Location: conformorder.php");
 
                 }
             }
 
 
         }
-        if(($_POST['s'] == $r) || ($_POST['s'] == $rr) )
-        {
-            header("Location: conformorder.php");
-    
-        }
         else{
             echo "PLEASE ENTER CORRECT CONFORMITION CODE";
         }
+        
  }
 ?>

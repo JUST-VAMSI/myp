@@ -7,30 +7,32 @@
    
     <style>
 body{
-        background-image:url('background1.jpg');
+        /* background-image:url('background1.jpg');
         background-repeat:no-repeat;
         background-attachment:fixed;
-        background-size:cover;
+        background-size:cover; */
+        background-color:#f0f0f0;
     }
     .container{
-    background-color:rgba(0,0,0,0.7);
-    color:white;
+    /* background-color:rgba(0,0,0,0.7); */
+    background-color:white;
     width:50%;
     padding:3% 2%;
     border-radius:10px;
 }
    .start{
         margin-top:5%;
-        color:#f0f0f0;
+        /* color:#f0f0f0; */
     }
     .end{
         display:none;
     }
    input[type="email"],input[type="password"],input[type="text"]{
-    background-color:black; 
-    color:white;
+    /* background-color:black; 
+    color:white; */
     border:1px solid gray;
     width:100%;
+    border-radius:8px;
 }
    .button{
     background-color:#5EC942;
@@ -55,7 +57,7 @@ input[type="checkbox"]{
    .end{
         display:inline-block;
         margin-top:30%;
-        color:#f0f0f0;
+        /* color:#f0f0f0; */
         font-size:90px;
     }
    .container{
