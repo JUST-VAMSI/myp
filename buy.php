@@ -25,6 +25,9 @@ if($check==1)
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <style>
+    *{
+        font-family:italic;
+    }
     body{
         /* background-image:url('background1.jpg');
         background-repeat:no-repeat;

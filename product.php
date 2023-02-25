@@ -20,6 +20,9 @@
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <style>
+  *{
+    font-family:italic;
+  }
  .fas{
   display:none;
  }
@@ -194,7 +197,7 @@
               <h1 class="he"><?= $row['proname'] ?></h1>
               <div class="row rowdiv">
                 <div class="col-lg-4 col-sm-4">
-                <s><h3 class="hp"><span><?= $row['promrp'] ?></span></h3></s>
+                <s><h4 class="hp"><span><?= $row['promrp'] ?></span></h4></s>
                 </div>
                 <div class="col-lg-8 col-sm-8">
                   <h3 class="hp"><span><?= $row['proprice'] ?></span></h3>

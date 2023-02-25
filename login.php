@@ -14,6 +14,9 @@ if(!isset($_SESSION['uname']))
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <style>
+    *{
+        font-family:italic;
+    }
 body{
         /* background-image:url('background1.jpg');
         background-repeat:no-repeat;
@@ -47,8 +50,14 @@ input[type="text"],input[type="password"]{
     color:white; */
     border:1px solid gray;
     width:100%;
+    height:100%;
     border-radius:8px;
+    font-size:20px;
 }
+.row{
+    margin-top:2%;
+    justify-content:center;
+   }
 .button{
     background-color:#5EC942;
     font-size:20px;
@@ -75,9 +84,10 @@ input[type="checkbox"]{
    }
    .end{
         display:inline-block;
-        margin-top:30%;
+        margin-top:25%;
         /* color:#f0f0f0; */
         font-size:90px;
+        color:green;
     }
     .sma{
 
@@ -88,6 +98,7 @@ input[type="checkbox"]{
     margin-top:30%;
     width:100%;
     height:1000px;
+
    }
    .hide{
     display:none;
@@ -97,11 +108,11 @@ input[type="checkbox"]{
    }
    input[type="text"],input[type="password"]{
     height:90px;
-    font-size:40px;
+    font-size:50px;
    }
    input[type="checkbox"]{
-    height:30px;
-    width:30px;
+    height:40px;
+    width:40px;
 
    }
    .sp{

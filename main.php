@@ -38,8 +38,9 @@ if(isset($_SESSION['uname']))
       .contactrow{
         padding-top:2%;
       }
-      .buttonbuy{
-        margin-bottom:2%;
+      a{
+        text-decoration:none;
+        color:black;
       }
       .col-sm-6 img{
         margin-top:2%;
@@ -87,7 +88,7 @@ if(isset($_SESSION['uname']))
         .h{
           font-size:50px;
         }
-        .nav-link,.dropdown-item,.ic{
+        .nav-link,.dropdown-item{
           font-size:30px;
         }
       .rowone .col-sm-6{
@@ -125,6 +126,9 @@ if(isset($_SESSION['uname']))
           padding:4%;
         }
         .gal{
+          font-size:40px;
+        }
+        .ic{
           font-size:40px;
         }
       }
@@ -266,10 +270,12 @@ PRODUCTS
 
             
                 <div class="col-sm-6 col-lg-4 text-center product">
+                <a href="product.php?prod=<?=$row['proname'] ?>">
                 <img src="<?php echo $row['proimg']?>" alt="..." height="300px" width="250px" style="border-radius:8px;">
                 <h6 class="card-title" name="pname"><?php echo $row['proname']?></h6>
                   <p class="card-text">RS.<?php echo $row['proprice']?></p>
-                   <a href="product.php?prod=<?=$row['proname'] ?>" class="btn btn-warning buttonbuy"> BUY NOW</a>
+                    <button class="btn btn-warning m-2">BUY NOW</button>
+                  </a>
           </div>
              <?php  
         

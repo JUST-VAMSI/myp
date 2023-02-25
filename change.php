@@ -6,6 +6,9 @@
 </head>
    
     <style>
+        *{
+            font-family:italic;
+        }
 body{
         /* background-image:url('background1.jpg');
         background-repeat:no-repeat;

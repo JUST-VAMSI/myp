@@ -7,6 +7,9 @@
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <style>
+    *{
+        font-family:italic;
+    }
     body{
         /* background-image:url('background1.jpg');
         background-repeat:no-repeat;
@@ -42,6 +45,7 @@ input[type="text"],input[type="password"],textarea,input[type="email"],input[typ
     border:1px solid gray;
     width:100%;
     height:100%;
+    font-size:20px;
 }
 input[type="checkbox"],input[type="radio"]{
     accent-color:cyan;
@@ -50,16 +54,6 @@ input[type="checkbox"],input[type="radio"]{
     margin-top:2%;
     justify-content:center;
    }
-.button1{
-    background-color:red;
-    color:#f0f0f0;
-    border:1px solid black;
-    border-radius:5px;
-    width:80px;
-    font-size:18px;
-    margin-top:2%;
-
-}
 .button2{
     background-color:#5EC942;
     font-size:18px;
@@ -69,7 +63,7 @@ input[type="checkbox"],input[type="radio"]{
     border-radius:5px;
     margin-top:2%;
 }
-.button1:hover,.button2:hover{
+.button2:hover{
     transform: scale(1.2,1.2);
     transition-duration: .2s;
 }
@@ -83,7 +77,7 @@ input[type="checkbox"],input[type="radio"]{
    }
    .end{
         display:inline-block;
-        margin-top:2%;
+        margin-top:25%;
         color:green;
         font-size:90px;
     }
@@ -95,33 +89,28 @@ input[type="checkbox"],input[type="radio"]{
         font-size:30px;
     }
     .container{
-    margin-top:20%;
+    margin-top:30%;
     width:100%;
-    height:auto;
-    background:none;
-    box-shadow:none;
+    height:1000px;
+
    }
     .row input[type="text"],input[type="password"],textarea,input[type="email"],input[type="number"]{
     margin-top:3%;
    }
-   input[type="text"],input[type="password"],input[type="email"],input[type="number"]{
+   input[type="text"],input[type="password"],input[type="email"]{
     height:90px;
-    font-size:40px;
+    font-size:50px;
    }
-   textarea{
-    height:250px;
-    font-size:40px;
-   }
-   input[type="checkbox"],input[type="radio"]{
-    height:30px;
-    width:30px;
+   input[type="checkbox"]{
+    height:40px;
+    width:40px;
    }
    .sp,.sp1{
     font-size:40px;
     float:left;
     color:coral;
    }
-   .button1,.button2{
+   .button2{
     margin-top:5%;
     font-size:40px;
     width:40%;
@@ -142,7 +131,7 @@ input[type="checkbox"],input[type="radio"]{
                     <p class="hide">Email:</p>
                 </div>
                 <div class="col-lg-6 col-sm-12">
-                    <input type="email" onkeyup="Email();" id="emailname" name="Emailname" placeholder="                                      @gmail.com">
+                    <input type="email" onkeyup="Email();" id="emailname" name="Emailname" placeholder="@gmail.com">
                 </div>
             </div>
             <div class="row">
@@ -158,7 +147,7 @@ input[type="checkbox"],input[type="radio"]{
                     
                 </div>
                 <div class="col-lg-9 col-sm-12">
-                    <pre class="sp"><input type="checkbox" id="check" onclick="Check();" name="cbox">show password</pre>
+                    <pre class="sp"><input type="checkbox" id="check" onclick="Check();" name="cbox"> show password</pre>
                 </div>
             </div>
             <div class="row">
