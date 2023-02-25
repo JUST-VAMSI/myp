@@ -120,9 +120,17 @@ input[type="checkbox"]{
     
     </head>
 <body class=" text-center" >
+    <?php
+    if(isset($_GET['che'])){
+
+    ?>
+    <script>alert(<?php echo $_GET['che'] ?>)</script>
+    <?php
+    }
+    ?>
 <h1 class="start">Sign in</h1>
          <pre><p class="hide">Don't have an account? Please <a href="pro.php" name="log" class="text-primary">Register</a></p></pre>
-    <form action="check.php" method="post" class="text-center">
+    <form class="text-center" action="check.php" method="post">
     <div class="container">
     <h1 class="end">Sign in</h1>
     <pre><p class="sma">Don't have an account? Please <a href="pro.php" name="log" class="text-primary">Register</a></p></pre>
@@ -149,8 +157,9 @@ input[type="checkbox"]{
                 
             </div>
             <div class="col-lg-9 col-sm-12">
-                <pre class="sp"><input type="checkbox" onclick="check();" name="lcheck" id="lcheckbox">show password</pre>
+                <pre class="sp"><input type="checkbox" onclick="check();" name="lcheck" id="lcheckbox"> show password</pre>
             </div>
+
             
         </div>
         

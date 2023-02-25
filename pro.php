@@ -137,20 +137,12 @@ input[type="checkbox"],input[type="radio"]{
     <div class="container">
     <h1 class="end">Sign up</h1>
     <pre><p class="sma">Already an user? Please <a href="login.php" name="log" class="text-primary">login</a></p></pre>
-            <div class="row">
+             <div class="row">
                 <div class="col-lg-6 col-sm-12">
-                    <p class="hide">First name:</p>
+                    <p class="hide">Email:</p>
                 </div>
                 <div class="col-lg-6 col-sm-12">
-                    <input onkeyup="Firstname();" type="text" id="Fname" name="fname" placeholder="Enter Fname">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-sm-12">
-                    <p class="hide">Last name:</p>
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                    <input onkeyup="Lastname();" type="text" id="Lname" name="lname" placeholder="Enter Lname">
+                    <input type="email" onkeyup="Email();" id="emailname" name="Emailname" placeholder="                                      @gmail.com">
                 </div>
             </div>
             <div class="row">
@@ -178,47 +170,7 @@ input[type="checkbox"],input[type="radio"]{
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-sm-12">
-                    <p class="hide">Email:</p>
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                    <input type="email" onkeyup="Email();" id="emailname" name="Emailname" placeholder="                                      @gmail.com">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-sm-12">
-                    <p class="hide">Gender:</p>
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                    <p class="sp1">
-                        <label>Male</label><input type="radio" name="r1" value="male" id="radiobut1" onclick="Radio();">
-                        <label>Female</label><input type="radio" name="r1" value="female" id="radiobut2" onclick="Radio();">
-                        <label>Other</label><input type="radio" name="r1" value="other" id="radiobut3" onclick="Radio();">
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-sm-12">
-                    <p class="hide">Mobile number:</p>
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                    <input type="number" name="mobile" onkeyup="Mobile();" id="mobile" placeholder="+91">
-                </div>
-                
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-sm-12">
-                    <p class="hide">Address:</p>
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                    <textarea rows="3" cols="40" onkeyup="address();" id="add" name="textarea" placeholder="This address will be taken as your shipping address"></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-sm-12">
-                    <input type="reset" value="Reset" class="button1">
-                </div>
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-lg-12 col-sm-12">
                     <input type="submit" value="submit" name="vamsi" class="button2">
                 </div>
             </div>
@@ -230,34 +182,6 @@ input[type="checkbox"],input[type="radio"]{
 </html>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
-        function Firstname()
-        {
-            var v=document.getElementById("Fname").value;
-            var reg=/^[a-z A-Z]+$/;
-            if(v.length>=3 && v.match(reg))
-            {
-                document.getElementById("Fname").style.border="2px solid green";
-                return true ;
-            }
-            else{
-                document.getElementById("Fname").style.border="2px solid red";
-                return false;
-            }
-        }
-        function Lastname()
-        {
-            var v=document.getElementById("Lname").value;
-            var reg=/^[a-z A-Z]+$/;
-            if(v.length>=3 && v.match(reg))
-            {
-                document.getElementById("Lname").style.border="2px solid green";
-                return true ;
-            }
-            else{
-                document.getElementById("Lname").style.border="2px solid red";
-                return false;
-            }
-        }
         function Cpass()
         {
             var v=document.getElementById("CPass").value;
@@ -313,24 +237,6 @@ input[type="checkbox"],input[type="radio"]{
                 return false;
             }
         }
-        function Radio()
-        {
-            var v=document.getElementById("radiobut1").checked;
-            if(v==true)
-            {
-                return true;
-            }
-            var l=document.getElementById("radiobut2").checked;
-            if(l==true)
-            {
-                return true;
-            }
-            var s=document.getElementById("radiobut3").checked;
-            if(s==true)
-            {
-                return true;
-            }
-        }
 
         function Mobile()
         {
@@ -346,24 +252,9 @@ input[type="checkbox"],input[type="radio"]{
                 return false;
             }
         }
-        function address()
-        {
-            var v=document.getElementById("add").value;
-            var reg=/[a-z A-Z]+/;
-            if(v.length>=10 && v.match(reg))
-            {
-                document.getElementById("add").style.border="2px solid green";
-                return true;
-            }
-            else
-            {
-                document.getElementById("add").style.border="2px solid red";
-                return false;
-            }
-        }
         function hello()
         {
-           if(Firstname() && Lastname() && Cpass() && repass() && Email() && Radio() && address() && Mobile())
+           if(Cpass() && repass() && Email())
            {
                 return true;
            }

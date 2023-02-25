@@ -20,10 +20,9 @@ session_start();
         while($row=mysqli_fetch_assoc($result))
         {
             
-            if(($row['email']==$_POST['logname']) && $row['pass']==$_POST['logpass'])
+            if(($row['email']==$_POST['logname']) && ($row['pass']==$_POST['logpass']))
             {
                     $_SESSION['uname']=$_POST['logname'];
-                    $_SESSION['pass']=$_POST['logpass'];
                     $v=1;
             }
             
@@ -33,7 +32,7 @@ session_start();
           header("Location: main.php");
         }
         else{
-          header('Location: login.php');
+          header("Location: login.php?che='please check your email and password'");
         }
         mysqli_close($connect);
     }
