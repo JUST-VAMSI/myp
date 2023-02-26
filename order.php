@@ -3,21 +3,11 @@ session_start();
 $conn=mysqli_connect("localhost","root","","data123");
 if(isset($_SESSION['uname']) && isset($_GET['main']))
 {
-     $q="SELECT * FROM `detail`";
+     $q="SELECT * FROM `orderpage`";
     $result=mysqli_query($conn,$q);
     if($result)
     {
-      while($row=mysqli_fetch_assoc($result))
-      {
-        if($row['email']==$_SESSION['uname'])
-        {
-          $v=$row['firstname'];
-          $v .= 'ord';
-          $p="SELECT * FROM `$v`";
-          $res=mysqli_query($conn,$p);
-        }
-        
-      }
+      
       ?>
        <html>
                 <head>
@@ -128,11 +118,14 @@ if(isset($_SESSION['uname']) && isset($_GET['main']))
             </div>
           </nav>
           <?php
-          if($res->num_rows>0)
+          $got=0;
+          while($row=mysqli_fetch_assoc($result))
           {
-            while($row=mysqli_fetch_assoc($res))
-            {?>
-                      <div class="row rowone">
+            if($row['email']==$_SESSION['uname'])
+            {
+               $got=1;
+               ?>
+                  <div class="row rowone">
                         <div class="col-lg-6 col-sm-6 col-xs-6">
                              <img src="<?php echo $row['oimg']?>" alt="..." height="300px" width="250px" style="border-radius:5px;">
                         </div>
@@ -142,27 +135,31 @@ if(isset($_SESSION['uname']) && isset($_GET['main']))
                       </div>
                  </div>
                  </body>
-                       </html>
-          <?php
+                      </html>
+               <?php
+
             }
+            
           }
-         else{
-          ?>
-        <html>
-            <head>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-                <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    </head>
-    <body class="text-center">
-        <div class="container-fluid">
-                <h2>No Orders!</h2>
-                <a href="main.php" aria-current="page"><button class="buttonshop"><i class="fa fa-shopping-cart me-2"></i>Shop Now</button></a>
-                </div>
-                </body>
-                </html>
-        <?php
-         } 
+          if($got==0)
+          {
+              ?>
+            <html>
+                <head>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        </head>
+        <body class="text-center">
+            <div class="container-fluid">
+                    <h2>No Orders!</h2>
+                    <a href="main.php" aria-current="page"><button class="buttonshop"><i class="fa fa-shopping-cart me-2"></i>Shop Now</button></a>
+                    </div>
+                    </body>
+                    </html>
+            <?php
+          }
+         
     }
    
    

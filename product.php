@@ -9,7 +9,7 @@
     $result=mysqli_query($connect,$sql_query);
     ?>
     <?php
-    if(isset($_GET['prod']) && isset($_SESSION['uname']))
+    if((isset($_GET['prod']) && isset($_SESSION['uname'])))
     {
       $product=$_GET['prod'];
     ?>
@@ -238,10 +238,10 @@
             </div>
             <div class="row sticky">
                 <div class="col-lg-6 col-sm-6">
-                  <a href="cart.php?car=<?= $row['proname']?>"><button class="button1"><i class="fa fa-shopping-cart me-2"></i>Add to Cart</button></a>
+                  <a href="add_address.php?car=<?= $row['proname']?>"><button class="button1"><i class="fa fa-shopping-cart me-2"></i>Add to Cart</button></a>
                 </div>
                 <div class="col-lg-6 col-sm-6">
-                  <a href="beforesell.php?sell=<?= $row['proname']?>"><button class="button2">BUY NOW</button></a>
+                  <a href="add_address.php?sell=<?= $row['proname']?>"><button class="button2">BUY NOW</button></a>
                 </div>
           </div>
           </div>
@@ -261,5 +261,8 @@
 </footer>
 </body>
 <?php
+}
+else{
+  header("Location: login.php");
 }
 ?>

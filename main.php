@@ -1,13 +1,16 @@
 <?php
 session_start();
 $connect=mysqli_connect("localhost","root","","data123");
-if(isset($_SESSION['uname']))
-{ 
-  if(isset($_GET['cart'])){
+if(isset($_GET['cart'])){
     ?>
     <script>alert("successfully added")</script>
     <?php
-  }   
+  } 
+  if(isset($_GET['already']))
+  {?>
+    <script>alert(<?php echo $_GET['already'] ?>)</script>
+  <?php
+  }  
   ?>
     <!DOCTYPE html>
     <html>
@@ -141,16 +144,22 @@ if(isset($_SESSION['uname']))
     </div>
     <nav class="navbar navbar-expand-lg text-light bg-primary fw-bold text-center text-sm-center sticky-top" style="color:white;">
 <div class="container-fluid">
-<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-<li class="nav-item dropdown bg-primary text-light">
-<a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-<button><i class="bi bi-file-person"></i></button>
-</a>
-<ul class="dropdown-menu bg-dark text-light" aria-labelledby="navbarDropdown">
-<li><a class="dropdown-item text-success" href="main.php"><?php echo $_SESSION['uname'].'<br>'; ?></a></li>
-</ul>
-</li>
-</ul>
+<?php
+if(isset($_SESSION['uname']))
+{?>
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item dropdown bg-primary text-light">
+      <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button><i class="bi bi-file-person"></i></button>
+      </a>
+      <ul class="dropdown-menu bg-dark text-light" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item text-success" href="main.php"><?php echo $_SESSION['uname'].'<br>'; ?></a></li>
+      </ul>
+    </li>
+  </ul>
+<?php
+}
+?>
 <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon">   
                   <i class="fas fa-bars" style="color:#fff; font-size:28px;"></i>
@@ -165,14 +174,14 @@ if(isset($_SESSION['uname']))
 <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 PRODUCTS
 </a>
-<ul class="dropdown-menu bg-dark text-light text-center text-sm-center" aria-labelledby="navbarDropdown">
-<li><a class="dropdown-item text-primary" href="#door">DOORS</a></li>
+<ul class="dropdown-menu bg-primary text-center text-sm-center" aria-labelledby="navbarDropdown">
+<li><a class="dropdown-item text-light" href="#door">DOORS</a></li>
 <li><hr class="dropdown-divider"></li>
-<li><a class="dropdown-item text-primary" href="#cot">COTS</a></li>
+<li><a class="dropdown-item text-light" href="#cot">COTS</a></li>
 <li><hr class="dropdown-divider"></li>
-<li><a class="dropdown-item text-primary" href="#sofa">SOFAS</a></li>
+<li><a class="dropdown-item text-light" href="#sofa">SOFAS</a></li>
 <li><hr class="dropdown-divider"></li>
-<li><a class="dropdown-item text-primary" href="#dining">Dining tables</a></li>
+<li><a class="dropdown-item text-light" href="#dining">Dining tables</a></li>
 </ul>
 </li>
 <li class="nav-item">
@@ -181,9 +190,22 @@ PRODUCTS
 <li class="nav-item">
 <a class="nav-link text-light" href="#contactus">CONTACT US</a>
 </li>
-<li class="nav-item text-light">
-<a class="nav-link text-light" href="logout.php" name="logout">LOGOUT</a>
-</li>
+<?php
+if(isset($_SESSION['uname']))
+{?>
+    <li class="nav-item">
+      <a class="nav-link text-light logout" href="logout.php" name="logout">LOGOUT</a>
+    </li>
+<?php
+}
+elseif(!isset($_SESSION['uname']))
+{?>
+    <li class="nav-item">
+      <a class="nav-link text-light login" href="login.php" name="login">SIGNIN / SINGUP</a>
+    </li>
+  <?php
+}
+?>
 </ul>
 
 <a href="atoc.php?ac='helo'"><button class="btn btn-primary px-4 f-right ic"><i class="fa fa-shopping-cart me-2"></i></button></a>
@@ -440,14 +462,6 @@ PRODUCTS
 
     </body>
     </html>
-    
-  <?php  
-}
-else
-{
-    header('Location: login.php');
-}
-?>
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 

@@ -3,20 +3,10 @@ session_start();
 $conn=mysqli_connect("localhost","root","","data123");
 if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || isset($_GET['pro']) || isset($_GET['cart'])))
 {
-    $q="SELECT * FROM `detail`";
+    $q="SELECT * FROM `add_address`";
     $result=mysqli_query($conn,$q);
     if($result)
     {
-      while($row=mysqli_fetch_assoc($result))
-      {
-        if($row['email']==$_SESSION['uname'])
-        {
-          $v=$row['firstname'];
-          $p="SELECT * FROM `$v`";
-          $res=mysqli_query($conn,$p);
-        }
-        
-      }
       
    
    
@@ -200,11 +190,13 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
             </div>
           </nav>
           <?php
-    if($res->num_rows>0)
-    {
       $connect=mysqli_connect("localhost","root","","data123");
-      $que="SELECT * FROM `detail`";
+      $que="SELECT * FROM `add_address`";
       $rest=mysqli_query($connect,$que);
+      $qur="SELECT * FROM `cart`";
+       $res=mysqli_query($conn,$qur);
+       if($res->num_rows>0)
+       {
       while($row=mysqli_fetch_assoc($rest))
       {
          if($row['email']==$_SESSION['uname'])
@@ -212,10 +204,10 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
           ?>
                  <div class="row rowone">
                    <div class="col-lg-6 col-sm-6">
-                       <p><b>Delivery to : </b><?= $row['useraddress'] ?></p>
+                       <p><b>Delivery to : </b><?= $row['fullname'].", ".$row['mobile'].", ".$row['pincode'].", ".$row['state'].", ".$row['house No'] ?></p>
                    </div>
                    <div class="col-lg-6 col-sm-6">
-                       <a href="address.php?ad='okk'"><button class="buttonedit">Edit</button></a>
+                       <a href=""><button class="buttonedit">Edit</button></a>
                    </div>
                  </div>
              
@@ -226,38 +218,47 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
        }
        
        $p=0;
-        while($row=mysqli_fetch_assoc($res))
-        {?>
-                  <div class="row rowmiddle">
-                    <div class="col-lg-6 col-sm-6 col-xs-6">
-                         <img src="<?php echo $row['pimg']?>" alt="..." height="300px" width="250px">
-                     </div>
-                      <div class="col-lg-6 col-sm-6 col-xs-6 colone">
-                        <h4 class="fw-bold"><?= $row['pname']; ?></h4>
-                        <hr>
-                        <p><?= $row['psdes'] ?></p>
-                        <div class="row">
-                          <div class="col-lg-6 col-sm-6 col-xs-6">
-                          <s><P class="text-danger"><?= $row['pmrp'] ?></P></s>
-                          </div>
-                          <div class="col-lg-6 col-sm-6 col-xs-6">
-                            <P class="left">RS.<span class="text-success"><?= $row['pprice'] ?></span></P>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <a href="del.php?dele=<?= $row['pname'] ?>">
-                          <button class="buttonremove">Remove</button></a>
-                        </div>
+       while($rw=mysqli_fetch_assoc($result))
+      {
+        if($rw['email']==$_SESSION['uname'])
+        {
+           while($row=mysqli_fetch_assoc($res))
+           {
+              if($row['email']==$rw['email'])
+              {?>
+                <div class="row rowmiddle">
+                <div class="col-lg-6 col-sm-6 col-xs-6">
+                     <img src="<?php echo $row['proimg']?>" alt="..." height="300px" width="250px">
+                 </div>
+                  <div class="col-lg-6 col-sm-6 col-xs-6 colone">
+                    <h4 class="fw-bold"><?= $row['proname']; ?></h4>
+                    <hr>
+                    <p><?= $row['prodes'] ?></p>
+                    <div class="row">
+                      <div class="col-lg-6 col-sm-6 col-xs-6">
+                      <s><P class="text-danger"><?= $row['promrp'] ?></P></s>
                       </div>
+                      <div class="col-lg-6 col-sm-6 col-xs-6">
+                        <P class="left">RS.<span class="text-success"><?= $row['proprice'] ?></span></P>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <a href="del.php?dele=<?= $row['proname'] ?>">
+                      <button class="buttonremove">Remove</button></a>
+                    </div>
                   </div>
-                    <?php
-                        $p+=$row['pprice'];
+              </div>
+                <?php
+                    $p+=$row['proprice'];
 
-                    ?>
-            
-           
-       <?php }
-       ?>
+                
+        
+              }
+           }
+        }
+        
+      }
+      ?>
           <div class="row rowtwo">
           <div class="col-lg-6 col-sm-6 col-xs-6">
             <h2>Total: <?php echo $p ?></h2>
@@ -269,8 +270,7 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
         </body>
          </html>
        <?php
-        }
-   
+       }
     else{
         ?>
         <html>

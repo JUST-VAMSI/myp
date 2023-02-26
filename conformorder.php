@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
         <head>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -41,6 +44,10 @@
                 }
             </style>
         </head>
+        <?php
+        if(isset($_SESSION['uname']) && isset($_GET['orderconfirm']))
+        {
+        ?>
         <body class="text-center text-sm-center">
             <img src="order.gif" alt="" width="250px" height="200px">
             <h1>order success</h1>
@@ -48,4 +55,7 @@
                 <a href="main.php" aria-current="page"><button class="buttonshopping"><i class="fa fa-shopping-cart"></i>Continue shopping</button></a>
                 </div>
         </body>
+        <?php
+        }
+        ?>
     </html>

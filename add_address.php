@@ -1,3 +1,7 @@
+<?php
+session_start();
+$conn=mysqli_connect('localhost','root','','data123');
+?>
 <html>
     <head>
         <title>address</title>
@@ -120,9 +124,66 @@ input[type="checkbox"],input[type="radio"]{
 }
 </style>
     </head>
+    <?php
+    $check="SELECT * FROM `add_address`";
+    $result=mysqli_query($conn,$check);
+    $q=0;
+    if($result->num_rows>0)
+    {
+    while($row=mysqli_fetch_assoc($result))
+    {
+        if($_SESSION['uname'] == $row['email'])
+        {
+            $q=1;
+            if(isset($_GET['car']))
+            {
+                $ch="SELECT * FROM `products`";
+                $carres=mysqli_query($conn,$ch);
+                while($carrow=mysqli_fetch_assoc($carres))
+                {
+                    if($_GET['car'] == $carrow['proname'] )
+                    {
+                        $caryes=$carrow['proname'];
+                        header("Location: cart.php?car=$caryes");
+                    }
+                }
+                
+                
+                
+            }
+            elseif(isset($_GET['sell']))
+            {
+                $se="SELECT * FROM `products`";
+                $seres=mysqli_query($conn,$se);
+                while($serow=mysqli_fetch_assoc($seres))
+                {
+                    $seyes=$serow['proname'];
+                    header("Location: beforesell.php?sell=$seyes");
+                }
+                
+            }
+        }
+    }
+  }
+    elseif(($q==0 && (isset($_GET['car']) || isset($_GET['sell'])) && isset($_SESSION['uname'])))
+    {
+    ?>
 <body class="text-center">
     <h1 class="start">Address</h1>
-    <form onsubmit="return total();" action="main.php" method="post">
+    <form onsubmit="return total();" <?php
+    if(isset($_GET['car']))
+    { $c=$_GET['car'];
+    ?>
+    action="addcheck.php?cart=<?= $c ?>" 
+    <?php
+    }
+      elseif(isset($_GET['sell'])){
+        $a=$_GET['sell'];
+        ?>
+        action="addcheck.php?buy=<?= $a ?>"
+        <?php
+      }  
+    ?> action="addcheck.php" method="post">
     <div class="container">
     <h1 class="end">Address</h1>
             <div class="row">
@@ -188,7 +249,7 @@ input[type="checkbox"],input[type="radio"]{
             </div>
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
-                    <input type="submit" value="Save Address" name="vamsi" class="button1">
+                    <input type="submit" value="Save Address" name="add_address" class="button1">
                 </div>
             </div>
         </div>
@@ -196,6 +257,12 @@ input[type="checkbox"],input[type="radio"]{
     
     
 </body>
+<?php
+    }
+    else{
+        header("Location: main.php");
+    }
+?>
 </html>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>

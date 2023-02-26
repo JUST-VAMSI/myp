@@ -3,71 +3,64 @@ session_start();
 $con=mysqli_connect("localhost","root","","data123");
 if(isset($_POST['sub']) && isset($_SESSION['uname']))
 {
-        if(isset($_GET['ran']) && isset($_GET['pp']) && ($_POST['s'] == $_GET['ran']))
+        if(isset($_GET['pp']))
         {
-            $r=$_GET['ran'];
             $p=$_GET['pp'];
             $query="SELECT * FROM products";
             $res=mysqli_query($con,$query);
-            $qust="SELECT * FROM detail";
+            $qust="SELECT * FROM add_address";
             $rrs=mysqli_query($con,$qust);
             while($row=mysqli_fetch_assoc($rrs))
             {
                 if($_SESSION['uname'] == $row['email'])
                 {
-                    $he=$row['firstname'];
-                    $he .= 'ord';
+                    $em=$row['email'];
+                    while($yes=mysqli_fetch_assoc($res))
+                    {
+                        if($yes['proname']==$p)
+                        {
+                            $oname=$yes['proname'];
+                            $oimg=$yes['proimg'];
+                            $q="INSERT INTO orderpage VALUES('$em','$oname','$oimg')";
+                            mysqli_query($con,$q);
+                            header("Location: conformorder.php?orderconfirm='yes'");
+                        }
+                    }
 
                 }
 
-            }
-            
-            while($yes=mysqli_fetch_assoc($res))
-            {
-                if($yes['proname']==$p)
-                {
-                    $oname=$yes['proname'];
-                    $oimg=$yes['proimg'];
-                    $q="INSERT INTO $he VALUES('$oname','$oimg')";
-                    mysqli_query($con,$q);
-                    header("Location: conformorder.php");
-                }
             }
    
         }
-        elseif(isset($_GET['rand']))
+        elseif(isset($_GET['addtoc']))
         {
-            $rr=$_GET['rand'];
             $u=$_SESSION['uname'];
-            $detq="SELECT * FROM detail";
+            $detq="SELECT * FROM add_address";
             $rest=mysqli_query($con,$detq);
             while($row=mysqli_fetch_assoc($rest))
             {
-                if(($u == $row['email']) && ($_POST['s'] == $_GET['rand']))
+                if($u == $row['email'])
                 {
-                    
-                    $got=$row['firstname'];
-                    $g='ord';
-                    $goted = $got.$g;
-                    $qu="SELECT * FROM $got";
+                    $qu="SELECT * FROM cart";
                     $res1=mysqli_query($con,$qu);
                     while($rem=mysqli_fetch_assoc($res1))
                     {
-                            $oname=$rem['pname'];
-                            $oimg=$rem['pimg'];
-                            $got1=$got.$g;
-                            $q="INSERT INTO $got1 VALUES('$oname','$oimg')";
+                        if($row['email'] == $rem['email'])
+                        {
+                            $ema=$row['email'];
+                            $oname=$rem['proname'];
+                            $oimg=$rem['proimg'];
+                            $q="INSERT INTO orderpage VALUES('$ema','$oname','$oimg')";
                             mysqli_query($con,$q);
+                        }
+                            
                     }
-                    header("Location: conformorder.php");
+                    header("Location: conformorder.php?orderconfirm='yes'");
 
                 }
             }
 
 
-        }
-        else{
-            echo "PLEASE ENTER CORRECT CONFORMITION CODE";
         }
         
  }

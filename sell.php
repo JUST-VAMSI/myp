@@ -1,7 +1,9 @@
 <?php
-if(isset($_GET['yessell']) || isset($_GET['atocsell']))
+session_start();
+$conn=mysqli_connect('localhost','root','','data123');
+if((isset($_GET['yessell']) || isset($_GET['atocsell'])) && isset($_SESSION['uname']))
 {
-    $randomint=rand(101,999);
+
     ?>
     <html>
         <head>
@@ -29,16 +31,16 @@ if(isset($_GET['yessell']) || isset($_GET['atocsell']))
             color:red;
           }
           .container h1{
-            color:navy;
-          }
-          .container h2{
             color:green;
           }
-          input[type="number"]{
+          /* .container h2{
+            color:green;
+          } */
+          /* input[type="number"]{
             width:20%;
             font-size:20px;
             height:5%;
-          }
+          } */
           input[type="submit"]{
             color:blue;
             background-color:lightpink;
@@ -67,14 +69,14 @@ if(isset($_GET['yessell']) || isset($_GET['atocsell']))
                 .head4{
                   font-size:40px;
                 }
-                .container h1,.container h2{
+                .container h1,{
                   font-size:50px;
                 }
-                input[type="number"]{
+                /* input[type="number"]{
                   width:50%;
                   font-size:40px;
                   height:5%;
-                }
+                } */
                 input[type="submit"]{
                   width:30%;
                   height:5%;
@@ -101,23 +103,28 @@ if(isset($_GET['yessell']) || isset($_GET['atocsell']))
           </nav>
           <h4 class="head4">All orders available only in cash on Delivery</h4>
            <div class="container">
-            <h1>Conform Order</h1>
-            <h2><?php echo $randomint ?></h2>
+            <h1>Confirm Order</h1>
             <?php
             if(isset($_GET['yessell']))
-            { $pro=$_GET['yessell'];
+            { $yes="SELECT * FROM products";
+              $test=mysqli_query($conn,$yes);
+              while($ty=mysqli_fetch_assoc($test))
+              {
+                if($_GET['yessell'] == $ty['proname'])
+                {
+                  $ord=$ty['proname'];
+                }
+              }
               ?>
-            <form action="sellcheck.php?ran=<?= $randomint ?> && pp=<?= $pro ?> " method="post">
-               <input type="number" name="s" placeholder="Enter above code"> <br>
+            <form action="sellcheck.php?pp=<?= $ord ?>" method="post">
                <input type="submit" name="sub" value="submit" class="buttonsubmit">
             </form>
             <?php
             }
-            if(isset($_GET['atocsell']))
+            elseif(isset($_GET['atocsell']))
             { 
               ?>
-            <form action="sellcheck.php?rand=<?= $randomint ?>" method="post">
-               <input type="number" name="s" placeholder="Enter above code"> <br>
+            <form action="sellcheck.php?addtoc='atoc'" method="post">
                <input type="submit" name="sub" value="submit" class="buttonsubmit">
             </form>
             <?php

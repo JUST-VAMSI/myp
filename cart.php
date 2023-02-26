@@ -5,32 +5,47 @@ if(isset($_GET['car']) && isset($_SESSION['uname']))
 {
     $s="SELECT * FROM `products`";
     $result=mysqli_query($conn,$s);
-    $n="SELECT * FROM `detail`";
+    $n="SELECT * FROM `add_address`";
     $res=mysqli_query($conn,$n);
     while($row=mysqli_fetch_assoc($result))
     {
         
         if($row['proname']==$_GET['car'])
         {
-            $pn=$_GET['car'];
-            $pi=$row['proimg'];
-            $psdes=$row['prosdes'];
-            $pmrp=$row['promrp'];
-            $pprice=$row['proprice'];
-            $check=$_SESSION['uname'];
-            while($r=mysqli_fetch_assoc($res))
+            $sel="SELECT * FROM cart";
+            $back=mysqli_query($conn,$sel);
+            $al=0;
+            while($reback=mysqli_fetch_assoc($back))
             {
-                if($r['email']==$check)
+                if($reback['proname'] == $_GET['car'])
                 {
-                    $v=$r['firstname'];
-                    $qu="INSERT INTO `$v` VALUES('$pn','$pi','$psdes','$pmrp','$pprice')";
-
-                    if(mysqli_query($conn,$qu))
+                    $al=1;
+                    header("Location: main.php?already='This item is already in cart!'");
+                }
+            }
+            if($al==0)
+            {
+                $pn=$_GET['car'];
+                $pi=$row['proimg'];
+                $psdes=$row['prosdes'];
+                $pmrp=$row['promrp'];
+                $pprice=$row['proprice'];
+                $check=$_SESSION['uname'];
+                while($r=mysqli_fetch_assoc($res))
+                {
+                    if($r['email']==$check)
                     {
-                        header("Location: main.php?cart='yes'");
+                        $v=$r['email'];
+                        $qu="INSERT INTO `cart` VALUES('$v','$pn','$pi','$psdes','$pmrp','$pprice')";
+
+                        if(mysqli_query($conn,$qu))
+                        {
+                            header("Location: main.php?cart='yes'");
+                        }
                     }
                 }
             }
+            
             
         }
     }

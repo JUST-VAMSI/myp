@@ -1,7 +1,7 @@
 <?php
 session_start();
 $conn=mysqli_connect("localhost","root","","data123");
-if((isset($_GET['sell'])) || isset($_SESSION['uname']))
+if((isset($_GET['sell'])) && isset($_SESSION['uname']))
 {
     $pro=$_GET['sell'];
     $q="SELECT * FROM `products`";
@@ -114,7 +114,7 @@ if((isset($_GET['sell'])) || isset($_SESSION['uname']))
     if($result->num_rows>0)
     {
       $connect=mysqli_connect("localhost","root","","data123");
-      $que="SELECT * FROM `detail`";
+      $que="SELECT * FROM `add_address`";
       $rest=mysqli_query($connect,$que);
       while($row=mysqli_fetch_assoc($rest))
       {
@@ -123,7 +123,7 @@ if((isset($_GET['sell'])) || isset($_SESSION['uname']))
           ?>
                  <div class="row rowone">
                    <div class="col-lg-6 col-sm-6 mt-5 mb-5">
-                       <p><b>Delivery to : </b><?= $row['useraddress'] ?></p>
+                   <p><b>Delivery to : </b><?= $row['fullname'].", ".$row['mobile'].", ".$row['pincode'].", ".$row['state'].", ".$row['house No'] ?></p>
                    </div>
                    <div class="col-lg-6 col-sm-6 mt-5 mb-5">
                        <a href="address.php?ad='okk'"><button class="buttonedit">Edit</button></a>
@@ -141,6 +141,6 @@ if((isset($_GET['sell'])) || isset($_SESSION['uname']))
          }
 
     }
-}
+  }
     }
   }?>
