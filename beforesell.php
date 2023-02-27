@@ -123,10 +123,10 @@ if((isset($_GET['sell'])) && isset($_SESSION['uname']))
           ?>
                  <div class="row rowone">
                    <div class="col-lg-6 col-sm-6 mt-5 mb-5">
-                   <p><b>Delivery to : </b><?= $row['fullname'].", ".$row['mobile'].", ".$row['pincode'].", ".$row['state'].", ".$row['house No'] ?></p>
+                   <p><b>Delivery to : </b><?= $row['fullname'].", ".$row['mobile'].", ".$row['pincode'].", ".$row['states'].", ".$row['house'].", ".$row['roadname']?></p>
                    </div>
                    <div class="col-lg-6 col-sm-6 mt-5 mb-5">
-                       <a href="address.php?ad='okk'"><button class="buttonedit">Edit</button></a>
+                       <a href="add_address.php?edit='okk'"><button class="buttonedit">Edit</button></a>
                    </div>
                  </div>
                  <div class="row rowtwo">

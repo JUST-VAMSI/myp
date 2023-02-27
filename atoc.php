@@ -1,7 +1,7 @@
 <?php
 session_start();
 $conn=mysqli_connect("localhost","root","","data123");
-if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || isset($_GET['pro']) || isset($_GET['cart'])))
+if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || isset($_GET['pro']) || isset($_GET['edchange']) || isset($_GET['cart'])))
 {
     $q="SELECT * FROM `add_address`";
     $result=mysqli_query($conn,$q);
@@ -16,7 +16,7 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
                 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
                 <style>
                   .fas{
                     display:none;
@@ -75,6 +75,9 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
                   }
                   .row .colone p{
                     font-size:30px;
+                  }
+                  .row .colone .no{
+                    font-size:25px;
                   }
                   .buttonremove{
                     color:white;
@@ -204,10 +207,10 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
           ?>
                  <div class="row rowone">
                    <div class="col-lg-6 col-sm-6">
-                       <p><b>Delivery to : </b><?= $row['fullname'].", ".$row['mobile'].", ".$row['pincode'].", ".$row['state'].", ".$row['house No'] ?></p>
+                       <p><b>Delivery to : </b><?= $row['fullname'].", ".$row['mobile'].", ".$row['pincode'].", ".$row['states'].", ".$row['house'].", ".$row['roadname']?></p>
                    </div>
                    <div class="col-lg-6 col-sm-6">
-                       <a href=""><button class="buttonedit">Edit</button></a>
+                       <a href="add_address.php?edit='confirm'"><button class="buttonedit">Edit</button></a>
                    </div>
                  </div>
              
@@ -236,10 +239,10 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
                     <p><?= $row['prodes'] ?></p>
                     <div class="row">
                       <div class="col-lg-6 col-sm-6 col-xs-6">
-                      <s><P class="text-danger"><?= $row['promrp'] ?></P></s>
+                      <s><P class="text-danger no"><?= $row['promrp'] ?></P></s>
                       </div>
                       <div class="col-lg-6 col-sm-6 col-xs-6">
-                        <P class="left">RS.<span class="text-success"><?= $row['proprice'] ?></span></P>
+                        <P class="left"><i class="bi bi-currency-rupee"></i><span class="text-success"><?= $row['proprice'] ?></span></P>
                       </div>
                     </div>
                     <div class="row">
@@ -294,4 +297,8 @@ if(isset($_SESSION['uname']) && (isset($_GET['ac']) || isset($_GET['yes']) || is
 
     
 }
+elseif(!isset($_SESSION['uname']))
+       {
+          header("Location: login.php");
+       }
 ?>

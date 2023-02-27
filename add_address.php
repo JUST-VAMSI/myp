@@ -128,15 +128,15 @@ input[type="checkbox"],input[type="radio"]{
     $check="SELECT * FROM `add_address`";
     $result=mysqli_query($conn,$check);
     $q=0;
-    if($result->num_rows>0)
+    if(isset($_GET['car']) || isset($_GET['sell']))
     {
     while($row=mysqli_fetch_assoc($result))
     {
         if($_SESSION['uname'] == $row['email'])
         {
-            $q=1;
             if(isset($_GET['car']))
             {
+                $q=1;
                 $ch="SELECT * FROM `products`";
                 $carres=mysqli_query($conn,$ch);
                 while($carrow=mysqli_fetch_assoc($carres))
@@ -153,6 +153,7 @@ input[type="checkbox"],input[type="radio"]{
             }
             elseif(isset($_GET['sell']))
             {
+                $q=1;
                 $se="SELECT * FROM `products`";
                 $seres=mysqli_query($conn,$se);
                 while($serow=mysqli_fetch_assoc($seres))
@@ -164,8 +165,8 @@ input[type="checkbox"],input[type="radio"]{
             }
         }
     }
-  }
-    elseif(($q==0 && (isset($_GET['car']) || isset($_GET['sell'])) && isset($_SESSION['uname'])))
+}
+    if(($q==0 && (isset($_GET['car']) || isset($_GET['sell']) || isset($_GET['edit'])) && isset($_SESSION['uname'])))
     {
     ?>
 <body class="text-center">
@@ -183,7 +184,13 @@ input[type="checkbox"],input[type="radio"]{
         action="addcheck.php?buy=<?= $a ?>"
         <?php
       }  
-    ?> action="addcheck.php" method="post">
+      elseif(isset($_GET['edit'])){
+        $edt=$_GET['edit'];
+        ?>
+        action="addcheck.php?edyes=<?= $edt ?>"
+        <?php
+      }  
+    ?> method="post">
     <div class="container">
     <h1 class="end">Address</h1>
             <div class="row">
@@ -259,9 +266,9 @@ input[type="checkbox"],input[type="radio"]{
 </body>
 <?php
     }
-    else{
-        header("Location: main.php");
-    }
+    // else{
+    //     header("Location: main.php");
+    // }
 ?>
 </html>
     <script src="https://smtpjs.com/v3/smtp.js"></script>

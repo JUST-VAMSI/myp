@@ -166,4 +166,8 @@ if(isset($_SESSION['uname']) && isset($_GET['main']))
     ?>
 <?php
 }
+elseif(!isset($_SESSION['uname']))
+       {
+          header("Location: login.php");
+       }
 ?>
