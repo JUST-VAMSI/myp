@@ -158,8 +158,12 @@ input[type="checkbox"],input[type="radio"]{
                 $seres=mysqli_query($conn,$se);
                 while($serow=mysqli_fetch_assoc($seres))
                 {
-                    $seyes=$serow['proname'];
-                    header("Location: beforesell.php?sell=$seyes");
+                    if($serow['proname'] == $_GET['sell'])
+                    {
+                        $seyes=$serow['proname'];
+                        header("Location: beforesell.php?sell=$seyes");
+                    }
+                    
                 }
                 
             }

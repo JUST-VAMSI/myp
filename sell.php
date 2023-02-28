@@ -11,6 +11,10 @@ if((isset($_GET['yessell']) || isset($_GET['atocsell'])) && isset($_SESSION['una
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
         <style>
+          *
+          {
+            font-family:italic;
+          }
           body{
             background-color:#f0f0f0;
           }
@@ -42,8 +46,8 @@ if((isset($_GET['yessell']) || isset($_GET['atocsell'])) && isset($_SESSION['una
             height:5%;
           } */
           input[type="submit"]{
-            color:blue;
-            background-color:lightpink;
+            color:white;
+            background-color:#0086F8;
             width:10%;
             height:5%;
             font-size:20px;
@@ -53,6 +57,15 @@ if((isset($_GET['yessell']) || isset($_GET['atocsell'])) && isset($_SESSION['una
           input[type="number"],input[type="submit"]{
             margin-top:2%;
           }
+          label{
+            font-size:30px;
+          }
+          input[type='radio']
+                {
+                  accent-color:cyan; 
+                  height:20px;
+                  width:20px;
+                }
           @media only screen and (max-width:1000px){
             .fas{
                   display:inline-block;
@@ -69,7 +82,7 @@ if((isset($_GET['yessell']) || isset($_GET['atocsell'])) && isset($_SESSION['una
                 .head4{
                   font-size:40px;
                 }
-                .container h1,{
+                .container h1{
                   font-size:50px;
                 }
                 /* input[type="number"]{
@@ -85,6 +98,7 @@ if((isset($_GET['yessell']) || isset($_GET['atocsell'])) && isset($_SESSION['una
                 input[type="number"],input[type="submit"]{
                   margin-top:4%;
                 }
+                
           }
         </style>
         </head>
@@ -101,7 +115,6 @@ if((isset($_GET['yessell']) || isset($_GET['atocsell'])) && isset($_SESSION['una
               </ul>
             </div>
           </nav>
-          <h4 class="head4">All orders available only in cash on Delivery</h4>
            <div class="container">
             <h1>Confirm Order</h1>
             <?php
@@ -113,11 +126,14 @@ if((isset($_GET['yessell']) || isset($_GET['atocsell'])) && isset($_SESSION['una
                 if($_GET['yessell'] == $ty['proname'])
                 {
                   $ord=$ty['proname'];
+                  break;
                 }
               }
               ?>
             <form action="sellcheck.php?pp=<?= $ord ?>" method="post">
-               <input type="submit" name="sub" value="submit" class="buttonsubmit">
+               <pre><input type="radio" name="payment" value="cash on delivery" id="radiobut1" onclick="Radio()"><label> cash on delivery</label></pre></br>
+               <pre><input type="radio" name="payment" value="Online payment" id="radiobut2" onclick="Radio()"><label> Online payment</label></pre></br>
+               <input type="submit" name="sub" value="Place order" class="buttonsubmit">
             </form>
             <?php
             }
@@ -125,7 +141,9 @@ if((isset($_GET['yessell']) || isset($_GET['atocsell'])) && isset($_SESSION['una
             { 
               ?>
             <form action="sellcheck.php?addtoc='atoc'" method="post">
-               <input type="submit" name="sub" value="submit" class="buttonsubmit">
+            <pre><input type="radio" name="payment" value="cash on delivery" id="radiobut1" onclick="Radio()"><label> cash on delivery</label></pre></br>
+               <pre><input type="radio" name="payment" value="Online payment" id="radiobut2" onclick="Radio()"><label> Online payment</label></pre></br>
+               <input type="submit" name="sub" value="Place order" class="buttonsubmit">
             </form>
             <?php
             }
@@ -137,3 +155,18 @@ if((isset($_GET['yessell']) || isset($_GET['atocsell'])) && isset($_SESSION['una
     <?php
 }
 ?>
+<script>
+  function Radio()
+        {
+            var v=document.getElementById("radiobut1").checked;
+            if(v==true)
+            {
+                return true;
+            }
+            var l=document.getElementById("radiobut2").checked;
+            if(l==true)
+            {
+                return true;
+            }
+        }
+</script>

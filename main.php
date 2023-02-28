@@ -254,7 +254,7 @@ elseif(!isset($_SESSION['uname']))
     {
        die("connection failed: ".mysqli_connect_error());
     }
-    $sql_query="SELECT * FROM `Products`";
+    $sql_query="SELECT * FROM `products` ORDER BY proid ASC";
     $result=mysqli_query($connect,$sql_query);
     ?>
 

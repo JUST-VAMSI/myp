@@ -5,30 +5,37 @@ if(isset($_POST['sub']) && isset($_SESSION['uname']))
 {
         if(isset($_GET['pp']))
         {
-            $p=$_GET['pp'];
-            $query="SELECT * FROM products";
-            $res=mysqli_query($con,$query);
-            $qust="SELECT * FROM add_address";
-            $rrs=mysqli_query($con,$qust);
-            while($row=mysqli_fetch_assoc($rrs))
+            if($_POST['payment'] == 'Online payment')
             {
-                if($_SESSION['uname'] == $row['email'])
+                echo $_POST['payment'];
+                exit(0);
+            }
+            else{
+                $p=$_GET['pp'];
+                $query="SELECT * FROM products";
+                $res=mysqli_query($con,$query);
+                $qust="SELECT * FROM add_address";
+                $rrs=mysqli_query($con,$qust);
+                while($row=mysqli_fetch_assoc($rrs))
                 {
-                    $em=$row['email'];
-                    while($yes=mysqli_fetch_assoc($res))
+                    if($_SESSION['uname'] == $row['email'])
                     {
-                        if($yes['proname']==$p)
+                        $em=$row['email'];
+                        while($yes=mysqli_fetch_assoc($res))
                         {
-                            $oname=$yes['proname'];
-                            $oimg=$yes['proimg'];
-                            $q="INSERT INTO orderpage VALUES('$em','$oname','$oimg')";
-                            mysqli_query($con,$q);
-                            header("Location: conformorder.php?orderconfirm='yes'");
+                            if($yes['proname']==$p)
+                            {
+                                $oname=$yes['proname'];
+                                $oimg=$yes['proimg'];
+                                $q="INSERT INTO orderpage VALUES('$em','$oname','$oimg')";
+                                mysqli_query($con,$q);
+                                header("Location: conformorder.php?orderconfirm='yes'");
+                            }
                         }
+
                     }
 
                 }
-
             }
    
         }
