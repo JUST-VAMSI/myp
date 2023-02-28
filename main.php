@@ -24,6 +24,19 @@ if(isset($_GET['cart'])){
     <!-- link swiper css-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <style>
+      *
+      {
+        font-family:italic;
+      }
+      .mainhead
+      {
+        color: white;
+        text-shadow: 1px 1px 2px black, 0 0 25px #0086F8, 0 0 5px blue;
+      }
+      .head{
+        color: white;
+        text-shadow: 1px 1px 2px black, 0 0 25px #0086F8, 0 0 5px blue;
+      }
       .rowone{
         justify-content:center;
         text-align:center;
@@ -88,8 +101,11 @@ if(isset($_GET['cart'])){
       }
       @media only screen and (max-width:1000px)
       {
-        .h{
+        .mainhead,.h{
           font-size:50px;
+        }
+        .head{
+          font-size:45px;
         }
         .nav-link,.dropdown-item{
           font-size:30px;
@@ -139,8 +155,8 @@ if(isset($_GET['cart'])){
     </head>
     <body class="justify-content-center text-center text-sm-center" style="background-color:#f0f0f0;">
     <div class="row container d-flex justify-content-center" style="width:100%;padding-left:18%;">
-    <h1 class="text-center h">FURNITURE</h1>
-    <h2 class="text-center h">ALL IN ONE</h2>
+    <h1 class="text-center mainhead">FURNITURE</h1>
+    <h2 class="text-center head">ALL IN ONE</h2>
     </div>
     <nav class="navbar navbar-expand-lg text-light bg-primary fw-bold text-center text-sm-center sticky-top" style="color:white;">
 <div class="container-fluid">
@@ -208,7 +224,7 @@ elseif(!isset($_SESSION['uname']))
 ?>
 </ul>
 
-<a href="atoc.php?ac='helo'"><button class="btn btn-primary px-4 f-right ic"><i class="fa fa-shopping-cart me-2"></i></button></a>
+<a href="atoc.php?ac='helo'"><button class="btn btn-primary px-4 f-right ic"><i class="bi bi-cart-check-fill me-2"></i></button></a>
 <a href="order.php?main='order'"><button class="btn btn-primary px-4 f-right ic"><i class="bi bi-bag-fill"></i></button></a>
 </div>
 </div>
@@ -423,7 +439,7 @@ elseif(!isset($_SESSION['uname']))
        <div><h6><b>S/O:</b></h6></div>
        <div><h6><b>EMAIL:</b></h6></div>
        <div><h6><b>MOBILE NO.:</b></h6></div>
-       <div><h6><b>WORK EXPIRENCE:</b></h6></div>
+       <div><h6><b>WORK EXPC:</b></h6></div>
        <div><h6><b>VILLAGE:</b></h6></div>
        <div><h6><b>DISTRICT:</b></h6></div>
        <div><h6><b>STATE:</b></h6></div>

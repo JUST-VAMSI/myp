@@ -1,6 +1,17 @@
 <?php
 session_start();
-if(TRUE)
+$conn=mysqli_connect("localhost","root","","data123");
+$res=0;
+$ch="SELECT * FROM detail";
+$chres=mysqli_query($conn,$ch);
+while($row=mysqli_fetch_assoc($chres))
+{
+    if($_SESSION['uname'] == $row['email'])
+    {
+        $res=1;
+    }
+}
+if($res==1)
 {?>
     <html>
         <head>
@@ -9,41 +20,43 @@ if(TRUE)
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
         <style>
-            body{
-                    background-image:url('background1.jpg');
-                    background-repeat:no-repeat;
-                    background-attachment:fixed;
-                    background-size:cover;
-                }
-                .start{
-                    margin-top:5%;
-                    color:#f0f0f0;
-                }
-                .end{
-                    display:none;
-                }
-                .container{
-                        background-color:rgba(0,0,0,0.7);
-                        color:white;
-                        width:50%;
-                        padding:3% 2%;
-                        border-radius:10px;
-                    }
+            *{
+        font-family:italic;
+    }
+body{
+        /* background-image:url('background1.jpg');
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-size:cover; */
+        background-color:#f0f0f0;
+    }
+    .start{
+        margin-top:5%;
+        /* color:#f0f0f0; */
+        color:green;
+    }
+    .end{
+        display:none;
+    }
+    .sma{
+        display:none;
+    }
+.container{
+    /* background-color:rgba(0,0,0,0.7);
+    color:white; */
+    width:50%;
+    padding:3% 2%;
+    border-radius:10px;
+    background-color:white;
+    box-shadow:2px 2px gray;
+}
 
-                    input[type="text"],input[type="password"],input[type="file"]{
-                        background-color:black; 
-                        color:white;
+                    input[type="text"],input[type="password"],input[type="file"]{ 
                         border:1px solid gray;
-                        width:100%;
-                    }
-                    .button1{
-                        background-color:red;
-                        color:black;
-                        border:1px solid;
-                        border-radius:5px;
-                        width:80px;
-                        font-size:18px;
-                        margin-top:2%;
+    width:100%;
+    height:100%;
+    border-radius:8px;
+    font-size:20px;
                     }
                     .button2{
                         background-color:#5EC942;
@@ -54,7 +67,7 @@ if(TRUE)
                         border-radius:5px;
                         margin-top:2%;
                     }
-                    .button1:hover,.button2:hover{
+                    .button2:hover{
                         transform: scale(1.2,1.2);
                         transition-duration: .2s;
                     }
@@ -66,7 +79,7 @@ if(TRUE)
                         .end{
                                 display:inline-block;
                                 margin-top:30%;
-                                color:#f0f0f0;
+                                /* color:#f0f0f0; */
                                 font-size:90px;
                             }
                             
@@ -85,7 +98,7 @@ if(TRUE)
                             height:90px;
                             font-size:40px;
                         }
-                        .button1,.button2{
+                        .button2{
                             margin-top:5%;
                             font-size:30px;
                             width:120px;
@@ -115,10 +128,7 @@ if(TRUE)
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 col-sm-12">
-                            <input type="reset" value="Reset" class="button1">
-                        </div>
-                        <div class="col-lg-6 col-sm-12">
+                        <div class="col-lg-12 col-sm-12">
                             <input type="submit" value="submit" class="button2" name="gsub">
                         </div>
                     </div>
@@ -133,5 +143,9 @@ if(TRUE)
     </html>
 
 <?php
+}
+else
+{
+    echo 'Your are not eligible to open this page';
 }
 ?>

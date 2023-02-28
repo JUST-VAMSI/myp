@@ -21,7 +21,7 @@ if(isset($_GET['dele']) && isset($_SESSION['uname']))
     
 }
 else{
-    echo 'not';
+    header("Location: main.php");
 }
 
 ?>

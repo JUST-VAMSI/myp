@@ -7,8 +7,9 @@ if(isset($_POST['sub']) && isset($_SESSION['uname']))
         {
             if($_POST['payment'] == 'Online payment')
             {
-                echo $_POST['payment'];
-                exit(0);
+                // echo $_POST['payment'];
+                // exit(0);
+                header("Location: https://www.youtube.com");
             }
             else{
                 $p=$_GET['pp'];
